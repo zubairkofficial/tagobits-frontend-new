@@ -1,10 +1,12 @@
 import HomeComponentLoader from '../utils/homecomponentsloader'
-import { AboutUsHero } from '../utils/lazyhomecomponents'
+import { AboutUsHero, Mission, OurStory } from '../utils/lazyhomecomponents'
 
 const AboutUs = () => {
     return(
         <div>
             <HomeComponentLoader component={AboutUsHero} />
+            <HomeComponentLoader component={Mission} />
+            <HomeComponentLoader component={OurStory} />
         </div>
     )
 }

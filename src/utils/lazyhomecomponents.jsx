@@ -10,3 +10,5 @@ export const Investors = lazy(() => import('../components/home/investors'));
 export const Partnerships = lazy(() => import('../components/home/partnerships'));
 
 export const AboutUsHero = lazy(() => import('../components/aboutus/abouthero'));
+export const Mission = lazy(() => import('../components/aboutus/mission'));
+export const OurStory = lazy(() => import('../components/aboutus/ourstory'));
