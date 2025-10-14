@@ -31,7 +31,7 @@ const Navbar = () => {
                         About Us
                     </Link>
                     <Link
-                        to="/"
+                        to="/contactus"
                         className='urbanist-regular text-[16px] text-primary'
                     >
                         Contact Us

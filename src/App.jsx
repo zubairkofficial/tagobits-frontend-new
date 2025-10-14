@@ -5,6 +5,7 @@ import './App.css'
 // pages import
 import { Home } from './utils/lazycomponentloader'
 import { AboutUs } from './utils/lazycomponentloader'
+import { Contact } from './utils/lazycomponentloader'
 
 // components import
 import Navbar from './components/navbar'
@@ -38,6 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout><LazyLoader component={Home} /></Layout>} />
         <Route path="/about" element={<Layout><LazyLoader component={AboutUs} /></Layout>} />
+        <Route path="/contactus" element={<Layout><LazyLoader component={Contact} /></Layout>} />
       </Routes>
     </Router>
   )

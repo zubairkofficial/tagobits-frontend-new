@@ -4,7 +4,7 @@ import { FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className="flex flex-col px-10 md:px-30 my-10">
+        <div className="flex flex-col px-10 md:px-30 mt-10">
             <div className="flex md:flex-row flex-col justify-between  md:gap-0 gap-10">
                 <div className="flex items-center gap-4">
                     <div><img src="tagobitslogo.png" alt="" /></div>

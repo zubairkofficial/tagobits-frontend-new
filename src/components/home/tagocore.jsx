@@ -20,8 +20,8 @@ const TagoCore = () => {
             </div>
             <div className="flex">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
-                    <div className="flex p-3 sm:p-5 w-full h-[271px] rounded-4xl text-white hover:text-primary transition-all duration-500 ease-in-out relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)' }}>
-                        <div className="absolute inset-0 bg-white opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
+                    <div className="flex p-3 sm:p-5 w-full h-[271px] rounded-4xl text-white hover:text-primary transition-all duration-500 ease-in-out relative overflow-hidden group" style={{ background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)' }}>
+                        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
                         <div className="flex flex-col max-w-[556px] relative z-10">
                             {/* <img src={box1icon} className="w-[40px] h-[40px] text-white" alt="" /> */}
                             <FaCubes className="w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] flex-shrink-0" />

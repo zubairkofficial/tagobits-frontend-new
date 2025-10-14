@@ -12,3 +12,9 @@ export const Partnerships = lazy(() => import('../components/home/partnerships')
 export const AboutUsHero = lazy(() => import('../components/aboutus/abouthero'));
 export const Mission = lazy(() => import('../components/aboutus/mission'));
 export const OurStory = lazy(() => import('../components/aboutus/ourstory'));
+export const Values = lazy(() => import('../components/aboutus/values'));
+export const Impact = lazy(() => import('../components/aboutus/impact'));
+export const AboutInvestors = lazy(() => import('../components/aboutus/aboutinvestors'));
+
+export const ContactHero = lazy(() => import('../components/contact/contacthero'));
+export const SendMsg = lazy(() => import('../components/contact/sendmsg'));

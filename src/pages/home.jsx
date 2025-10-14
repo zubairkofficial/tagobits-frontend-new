@@ -3,7 +3,7 @@ import { Hero, Whytago, Security, TagoCore, Worldwide, Investors, Partnerships }
 
 const Home = () => {
     return(
-        <div className='mt-20'>
+        <div className='mt-20 min-h-[calc(100vh-470px)]'>
             <HomeComponentLoader component={Hero} />
             <HomeComponentLoader component={Whytago} />
             <HomeComponentLoader component={Security} />

@@ -45,13 +45,18 @@ const Button = ({
         };
     }, [background, color, border, hoverBackground, hoverColor, hoverBorder]);
     
+    // Check if padding is Tailwind classes or CSS values
+    const isTailwindPadding = padding && padding.includes('px-') || padding && padding.includes('py-');
+    
     // Responsive padding classes: smaller on mobile, larger on desktop
-    const responsivePaddingClass = padding ? '' : 'px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 lg:px-10 lg:py-3';
+    const responsivePaddingClass = padding && !isTailwindPadding ? '' : 
+        padding && isTailwindPadding ? padding : 
+        'px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 lg:px-10 lg:py-3';
     
     const styles = {
         background: background,
         color: color,
-        padding: padding, // Use custom padding if provided, otherwise rely on Tailwind classes
+        padding: padding && !isTailwindPadding ? padding : undefined, // Only use inline padding for CSS values, not Tailwind classes
         border: border === "none" ? "2px solid transparent" : border,
         borderRadius: borderRadius,
         cursor: 'pointer',
