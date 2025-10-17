@@ -27,7 +27,7 @@ const Hero = () => {
                         <div className="flex flex-col gap-2">
                             <div className="flex flex-row gap-2 justify-center">
                                 <span className="text-primary"> <GiCheckedShield size={25} /> </span>
-                                <span className="urbanist-bold text-[14px] sm:text-[16px]">102%</span>
+                                <span className="urbanist-bold text-[14px] sm:text-[16px]">100%</span>
                             </div>
                             <span className="urbanist-regular text-center text-[12px] sm:text-[14px] text-[#576275]">TagoCash Circulation</span>
                         </div>

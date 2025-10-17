@@ -181,8 +181,11 @@ module.exports = {
     extend: {
       colors: {
         primary: "#235BB2",
+        "primary-dark": "#1952A8",
         buttonprimary : "#2A3E9C",
-        buttonsecondary : "#1478C7" 
+        buttonsecondary : "#1478C7",
+        footer: "#1952A8",
+        "footer-primary": "#08217A"
       },
     },
   },

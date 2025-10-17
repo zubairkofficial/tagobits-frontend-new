@@ -1,5 +1,5 @@
 import HomeComponentLoader from '../utils/homecomponentsloader'
-import { Hero, Whytago, Security, TagoCore, Worldwide, Investors, Partnerships } from '../utils/lazyhomecomponents'
+import { Hero, Whytago, Security, TagoCore, Worldwide, Investors, Partnerships, Partners } from '../utils/lazyhomecomponents'
 
 const Home = () => {
     return(
@@ -11,6 +11,7 @@ const Home = () => {
             <HomeComponentLoader component={Worldwide} />
             <HomeComponentLoader component={Investors} />
             <HomeComponentLoader component={Partnerships} />
+            <HomeComponentLoader component={Partners} />
         </div>
     )
 }

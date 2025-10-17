@@ -8,6 +8,7 @@ export const TagoCore = lazy(() => import('../components/home/tagocore'));
 export const Worldwide = lazy(() => import('../components/home/worldwide'));
 export const Investors = lazy(() => import('../components/home/investors'));
 export const Partnerships = lazy(() => import('../components/home/partnerships'));
+export const Partners = lazy(() => import('../components/home/partners'));
 
 export const AboutUsHero = lazy(() => import('../components/aboutus/abouthero'));
 export const Mission = lazy(() => import('../components/aboutus/mission'));

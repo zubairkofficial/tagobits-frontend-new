@@ -1,5 +1,6 @@
 import React, { Children, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import './App.css'
 
 // pages import
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <Router>
+      <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<Layout><LazyLoader component={Home} /></Layout>} />
         <Route path="/about" element={<Layout><LazyLoader component={AboutUs} /></Layout>} />
