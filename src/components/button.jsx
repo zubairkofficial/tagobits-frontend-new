@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Button = ({ 
     background = "#2A3E9C", 
@@ -9,10 +10,14 @@ const Button = ({
     hoverBackground, 
     hoverColor,
     hoverBorder,
-    borderRadius = "12.27px"
+    borderRadius = "12.27px",
+    onClick,
+    to,
+    type = "button"
 }) => {
     
     const buttonRef = React.useRef(null);
+    const navigate = useNavigate();
     
     React.useEffect(() => {
         const button = buttonRef.current;
@@ -70,14 +75,25 @@ const Button = ({
         userSelect: 'none'
     };
     
+    const handleClick = (event) => {
+        if (onClick) {
+            onClick(event);
+        }
+        if (!event.defaultPrevented && to) {
+            navigate(to);
+        }
+    };
+    
     return (
-        <div 
+        <button 
             ref={buttonRef}
+            type={type}
+            onClick={handleClick}
             style={styles}
             className={responsivePaddingClass}
         >
             {buttontext}
-        </div>
+        </button>
     );
 };
 

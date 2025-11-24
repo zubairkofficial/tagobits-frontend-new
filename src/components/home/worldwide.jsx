@@ -9,19 +9,19 @@ import Button from "../../components/button";
 
 const TagoCore = () => {
     return (
-        <div className="flex flex-col xl:flex-row max-w-[1900px] mx-auto items-center justify-center px-10 lg:px-10 xl:px-30 lg:gap-0">
+        <div className="flex flex-col xl:flex-row max-w-[1900px] mx-auto items-center justify-center px-10 lg:px-10 xl:px-30 lg:gap-0 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="flex flex-col mb-30 lg:w-1/2">
-                <span className="urbanist-regular border border-gray-200 p-2 rounded-4xl w-fit">Worldwide Users</span>
-                <span className="urbanist-bold text-primary text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px]">Powering Confidence Worldwide</span>
-                <span className="urbanist-regular text-gray-400 text-[16px] sm:text-[18px] md:text-[20px]">The rigor of TagoBits has earned the confidence of users, businesses, and governments worldwide.</span>
+                <span className="urbanist-regular border border-gray-200 dark:border-gray-700 p-2 rounded-4xl w-fit dark:text-gray-300">Worldwide Users</span>
+                <span className="urbanist-bold text-primary dark:text-blue-400 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px]">Powering Confidence Worldwide</span>
+                <span className="urbanist-regular text-gray-400 dark:text-gray-400 text-[16px] sm:text-[18px] md:text-[20px]">The rigor of TagoBits has earned the confidence of users, businesses, and governments worldwide.</span>
                 <div className="flex pt-20 gap-20">
                     <div className="flex flex-col">
-                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-primary">17M+</span>
-                        <span className="text-gray-500 text-[12px] sm:text-[14px] md:text-[16px]">Active TagoCash users worldwide</span>
+                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-primary dark:text-blue-400">17M+</span>
+                        <span className="text-gray-500 dark:text-gray-400 text-[12px] sm:text-[14px] md:text-[16px]">Active TagoCash users worldwide</span>
                     </div>
                     <div className="flex flex-col">
-                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-primary">196+</span>
-                        <span className="text-gray-500 text-[12px] sm:text-[14px] md:text-[16px]">Borderless reach across the globe</span>
+                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-primary dark:text-blue-400">196+</span>
+                        <span className="text-gray-500 dark:text-gray-400 text-[12px] sm:text-[14px] md:text-[16px]">Borderless reach across the globe</span>
                     </div>
                 </div>
             </div>

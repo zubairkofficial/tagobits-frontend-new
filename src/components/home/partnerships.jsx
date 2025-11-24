@@ -1,21 +1,22 @@
 import partnershipphoto from "../../assets/home/partnerships/partnership2.png"
 import linegraphline from "../../assets/home/whytago/linegraphline.png"
 import Button from "../../components/button"
+import ScrollFadeIn from "../common/ScrollFadeIn"
 
 const Partnership = () => {
     return (
-        <div className="flex flex-col items-center my-30 lg:px-30 xl:px-40">
+        <div className="flex flex-col items-center my-30 lg:px-30 xl:px-40 bg-white dark:bg-[#040b1f] transition-colors duration-300">
             <div className="flex xl:flex-row flex-col items-center justify-center gap-15 xl:gap-0">
-                <div className="flex flex-col items-center gap-10 xl:w-1/2">
+                <ScrollFadeIn className="flex flex-col items-center gap-10 xl:w-1/2">
                     <div className="flex flex-col items-center xl:items-start">
-                        <span className="w-fit border boder-1 rounded-4xl my-5 xl:my-0 p-2 border-gray-300">
+                        <span className="w-fit border rounded-4xl my-5 xl:my-0 px-4 py-2 border-gray-300 bg-white text-gray-800 dark:border-blue-500/40 dark:bg-white/5 dark:text-blue-100 transition-colors duration-300">
                             Partnerships
                         </span>
-                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary leading-[1.1]">
+                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary dark:text-blue-400 leading-[1.1]">
                             Great partnerships create better products
                         </span>
                     </div>
-                    <span className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275]">Great partnerships make great products for customers. We welcome your interest in partnering
+                    <span className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275] dark:text-blue-100/80">Great partnerships make great products for customers. We welcome your interest in partnering
                         with us.</span>
                     <div className='flex flex-row gap-2 xl:gap-8 justify-center xl:justify-start'>
                         {/* <div 
@@ -36,6 +37,7 @@ const Partnership = () => {
                             background="linear-gradient(to right, #2A3E9C, #1478C7)" 
                             color="#ffffff" 
                             buttontext="Become a Partner" 
+                            to="/contactus"
                             hoverBackground="#ffffff"
                             hoverColor="#235BB2"
                             hoverBorder="2px solid #235BB2"
@@ -45,13 +47,14 @@ const Partnership = () => {
                             color="#235BB2" 
                             buttontext="Contact Team" 
                             border="2px solid #235BB2" 
+                            to="/contactus"
                             hoverBackground="linear-gradient(to right, #2A3E9C, #1478C7)"
                             hoverColor="#ffffff"
                             hoverBorder="2px solid #ffffff"
                         />
                     </div>
-                </div>
-                <div className="w-8/9 xl:w-2/5 flex justify-end">
+                </ScrollFadeIn>
+                <ScrollFadeIn className="w-8/9 xl:w-2/5 flex justify-end" delay={0.15}>
                     <div className="relative xl:w-[540px] xl:h-[685px] rounded-xl overflow-hidden flex items-center justify-center hover:scale-105 transition-all duration-300">
                         <img
                             src={partnershipphoto}
@@ -85,7 +88,7 @@ const Partnership = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </ScrollFadeIn>
             </div>
         </div>
     )
