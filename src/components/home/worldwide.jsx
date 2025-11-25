@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import backimage from '../../assets/home/worldwide/backimage.png';
 import lightbluepin from '../../assets/home/worldwide/lightbluepin.png';
 import darkbluepin from '../../assets/home/worldwide/darkbluepin.png';
@@ -5,14 +6,25 @@ import redpin from '../../assets/home/worldwide/redpin.png';
 import orangepin from '../../assets/home/worldwide/orangepin.png';
 import purplepin from '../../assets/home/worldwide/purplepin.png';
 import Button from "../../components/button";
+import VariableProximity from "../VariableProximity";
 
 
 const TagoCore = () => {
+    const containerRef = useRef(null);
+    
     return (
-        <div className="flex flex-col xl:flex-row max-w-[1900px] mx-auto items-center justify-center px-10 lg:px-10 xl:px-30 lg:gap-0 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div ref={containerRef} className="flex flex-col xl:flex-row max-w-[1900px] mx-auto items-center justify-center px-10 lg:px-10 xl:px-30 lg:gap-0 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="flex flex-col mb-30 lg:w-1/2">
                 <span className="urbanist-regular border border-gray-200 dark:border-gray-700 p-2 rounded-4xl w-fit dark:text-gray-300">Worldwide Users</span>
-                <span className="urbanist-bold text-primary dark:text-blue-400 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px]">Powering Confidence Worldwide</span>
+                <VariableProximity
+                    label="Powering Confidence Worldwide"
+                    fromFontVariationSettings="'wght' 700"
+                    toFontVariationSettings="'wght' 900"
+                    containerRef={containerRef}
+                    radius={200}
+                    falloff="gaussian"
+                    className="text-primary dark:text-blue-400 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] block"
+                />
                 <span className="urbanist-regular text-gray-400 dark:text-gray-400 text-[16px] sm:text-[18px] md:text-[20px]">The rigor of TagoBits has earned the confidence of users, businesses, and governments worldwide.</span>
                 <div className="flex pt-20 gap-20">
                     <div className="flex flex-col">

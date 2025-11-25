@@ -1,20 +1,30 @@
+import { useRef } from 'react';
 import partnershipphoto from "../../assets/home/partnerships/partnership2.png"
 import linegraphline from "../../assets/home/whytago/linegraphline.png"
 import Button from "../../components/button"
 import ScrollFadeIn from "../common/ScrollFadeIn"
+import VariableProximity from "../VariableProximity"
 
 const Partnership = () => {
+    const containerRef = useRef(null);
+    
     return (
-        <div className="flex flex-col items-center my-30 lg:px-30 xl:px-40 bg-white dark:bg-[#040b1f] transition-colors duration-300">
+        <div ref={containerRef} className="flex flex-col items-center my-30 lg:px-30 xl:px-40 bg-white dark:bg-[#040b1f] transition-colors duration-300">
             <div className="flex xl:flex-row flex-col items-center justify-center gap-15 xl:gap-0">
                 <ScrollFadeIn className="flex flex-col items-center gap-10 xl:w-1/2">
                     <div className="flex flex-col items-center xl:items-start">
                         <span className="w-fit border rounded-4xl my-5 xl:my-0 px-4 py-2 border-gray-300 bg-white text-gray-800 dark:border-blue-500/40 dark:bg-white/5 dark:text-blue-100 transition-colors duration-300">
                             Partnerships
                         </span>
-                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary dark:text-blue-400 leading-[1.1]">
-                            Great partnerships create better products
-                        </span>
+                        <VariableProximity
+                            label="Great partnerships create better products"
+                            fromFontVariationSettings="'wght' 700"
+                            toFontVariationSettings="'wght' 900"
+                            containerRef={containerRef}
+                            radius={200}
+                            falloff="gaussian"
+                            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary dark:text-blue-400 leading-[1.1] block"
+                        />
                     </div>
                     <span className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275] dark:text-blue-100/80">Great partnerships make great products for customers. We welcome your interest in partnering
                         with us.</span>

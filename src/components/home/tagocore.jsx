@@ -1,8 +1,10 @@
+import { useRef } from 'react';
 import box1icon from "../../assets/home/tagocore/box1icon.png"
 import box2icon from "../../assets/home/tagocore/box2icon.png"
 import box3icon from "../../assets/home/tagocore/box3icon.png"
 import box4icon from "../../assets/home/tagocore/box4icon.png"
 import Button from "../../components/button"
+import VariableProximity from "../VariableProximity"
 
 import { FaCubes } from "react-icons/fa";
 import { SiConvertio } from "react-icons/si";
@@ -11,11 +13,21 @@ import { IoShieldCheckmarkSharp } from "react-icons/io5";
 
 
 const TagoCore = () => {
+    const containerRef = useRef(null);
+    
     return (
-        <div className="max-w-[1980px] mx-auto flex flex-col justify-center w-full px-10 lg:px-10 xl:px-30 my-20 lg:my-60 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div ref={containerRef} className="max-w-[1980px] mx-auto flex flex-col justify-center w-full px-10 lg:px-10 xl:px-30 my-20 lg:my-60 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="flex flex-col mb-30">
                 <span className="urbanist-regular border border-gray-200 dark:border-gray-700 p-2 rounded-4xl w-fit dark:text-gray-300">TagoCore</span>
-                <span className="urbanist-bold text-primary dark:text-blue-400 text-[64px]">TagoCore: The Heart of TagoBits</span>
+                <VariableProximity
+                    label="TagoCore: The Heart of TagoBits"
+                    fromFontVariationSettings="'wght' 700"
+                    toFontVariationSettings="'wght' 900"
+                    containerRef={containerRef}
+                    radius={200}
+                    falloff="gaussian"
+                    className="text-primary dark:text-blue-400 text-[64px] block"
+                />
                 <span className="urbanist-regular text-gray-400 dark:text-gray-400 text-[20px]">At the core of the Tago Platform is TagoCore, a powerful orchestration engine connecting 27+ global partners.</span>
             </div>
             <div className="flex">

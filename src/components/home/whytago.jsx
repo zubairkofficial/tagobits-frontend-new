@@ -1,12 +1,16 @@
+import { useRef } from 'react';
 import leftframe from "../../assets/home/whytago/frameleft.png"
 import linegraphline from "../../assets/home/whytago/linegraphline.png"
 import Button from "../../components/button"
 import ScrollFadeIn from "../common/ScrollFadeIn"
+import VariableProximity from "../VariableProximity"
 import { IoCubeOutline } from "react-icons/io5";
 
 const Whytago = () => {
+    const containerRef = useRef(null);
+    
     return (
-        <div className="flex flex-col items-center my-40 lg:px-30 xl:px-40 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div ref={containerRef} className="flex flex-col items-center my-40 lg:px-30 xl:px-40 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="flex xl:flex-row flex-col gap-10 md:gap-30 xl:gap-50">
                 <ScrollFadeIn className="relative scale-70 md:scale-100 flex justify-center xl:w-1/2" amount={0.35}>
                     <div className="absolute flex bg-white dark:bg-gray-800 shadow-2xl dark:shadow-blue-500/10 h-[163px] w-[376px] z-20 rounded-4xl -top-20 -left-10 md:left-10 xl:-left-20 p-6 hover:shadow-sm hover:scale-105 transition-all duration-300">
@@ -48,9 +52,15 @@ const Whytago = () => {
                         <span className="w-fit border boder-1 rounded-4xl my-5 xl:my-0 p-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 transition-colors duration-300">
                             Why Tago
                         </span>
-                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary dark:text-blue-400 leading-[1.1]">
-                            The Tago Platform Advantage
-                        </span>
+                        <VariableProximity
+                            label="The Tago Platform Advantage"
+                            fromFontVariationSettings="'wght' 700"
+                            toFontVariationSettings="'wght' 900"
+                            containerRef={containerRef}
+                            radius={200}
+                            falloff="gaussian"
+                            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary dark:text-blue-400 leading-[1.1] block"
+                        />
                     </div>
                     <span className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275] dark:text-gray-400">The Tago Platform is the infrastructure powering safe, secure and compliant borderless digital payments. Within the platform, TagoCash, the digital representation of the US Dollar is the standard for money movement.</span>
                     <div className='flex flex-row gap-8 justify-center xl:justify-start'>
