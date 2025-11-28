@@ -1,12 +1,31 @@
+import { motion } from "framer-motion"
 import { FaSquareXTwitter, FaYoutube } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import Button from "../button";
 
 const ContactHero = () => {
+    const cardVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: (i) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: i * 0.1,
+                duration: 0.5
+            }
+        })
+    };
+
     return (
         <div className="flex flex-col items-center justify-center gap-15 lg:gap-20 px-10 bg-gradient-to-br from-[#2A3E9C] to-[#1478C7] min-h-[700px] py-30">
-            <div className="flex flex-col items-center justify-center gap-5">
+            <motion.div 
+                className="flex flex-col items-center justify-center gap-5"
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <div className="flex flex-col justify-center xl:items-start">
                     <span className="urbanist-semibold text-[42px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[82px] text-center text-white leading-[1.1]">
                         Contact Us
@@ -22,10 +41,17 @@ const ContactHero = () => {
                     <div className="p-3 rounded-full border border-gray-50/60 text-gray-50/60"><FaSquareInstagram /></div>
                     <div className="p-3 rounded-full border border-gray-50/60 text-gray-50/60"><FaYoutube /></div>
                 </div>
-            </div>
+            </motion.div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-x-20 xl:gap-x-20 max-w-[1280px] mx-auto">
-                {/* Security First */}
-                <div className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl min-h-[270px]">
+                {/* Email Card */}
+                <motion.div 
+                    className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl min-h-[270px]"
+                    custom={0}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, margin: "-50px" }}
+                    variants={cardVariants}
+                >
                     <div className="p-3 border border-gray-50/60 rounded-full w-fit mb-4">
                         <svg className="w-6 h-6 text-gray-50/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -48,8 +74,15 @@ const ContactHero = () => {
                         />
                         <span className="urbanist-regular text-[16px] text-white leading-none">*available 24 hrs</span>
                     </div>
-                </div>
-                <div className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl">
+                </motion.div>
+                <motion.div 
+                    className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl"
+                    custom={1}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, margin: "-50px" }}
+                    variants={cardVariants}
+                >
                     <div className="p-3 border border-gray-50/60 rounded-full w-fit mb-4">
                         <svg className="w-6 h-6 text-gray-50/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -72,8 +105,15 @@ const ContactHero = () => {
                         />
                         <span className="urbanist-regular text-[16px] text-white leading-none">*available 24 hrs</span>
                     </div>
-                </div>
-                <div className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl">
+                </motion.div>
+                <motion.div 
+                    className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl"
+                    custom={2}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, margin: "-50px" }}
+                    variants={cardVariants}
+                >
                     <div className="p-3 border border-gray-50/60 rounded-full w-fit mb-4">
                         <svg className="w-6 h-6 text-gray-50/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -96,7 +136,7 @@ const ContactHero = () => {
                         />
                         <span className="urbanist-regular text-[16px] text-white leading-none">*available 24 hrs</span>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     )

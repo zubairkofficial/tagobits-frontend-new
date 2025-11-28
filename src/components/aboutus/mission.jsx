@@ -1,10 +1,17 @@
+import { motion } from "framer-motion"
 import mission from "../../assets/about/mission/mission.jpg"
 
 const Mission = () => {
     return (
         <div className="flex flex-col items-center justify-center gap-15 lg:gap-20 px-10 bg-white dark:bg-gray-900 min-h-[700px] py-20 transition-colors duration-300">
             <div className="flex xl:flex-row flex-col items-center justify-center gap-10 xl:gap-20 mx-50">
-                <div className="flex flex-col gap-10 xl:w-2/3 ">
+                <motion.div 
+                    className="flex flex-col gap-10 xl:w-2/3"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                >
                     <div className="flex flex-col gap-10">
                         <div className="flex flex-col justify-center xl:items-start gap-5">
                         <span className="urbanist-regular border border-gray-200 dark:border-gray-700 p-2 rounded-4xl w-fit dark:text-gray-300">Mission</span>
@@ -29,8 +36,14 @@ const Mission = () => {
                             To create a future where digital money is trusted worldwide as the universal medium of exchange.                                </span>
                         </div>
                     </div>
-                </div>
-                <div className="rounded-4xl xl:w-[610px] flex justify-end items-center overflow-hidden">
+                </motion.div>
+                <motion.div 
+                    className="rounded-4xl xl:w-[610px] flex justify-end items-center overflow-hidden"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                >
                     <div className="">
                         <img
                             src={mission}
@@ -38,7 +51,7 @@ const Mission = () => {
                             alt=""
                         />
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     )

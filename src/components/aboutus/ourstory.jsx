@@ -1,10 +1,17 @@
+import { motion } from "framer-motion"
 import ourstory from "../../assets/about/ourstory/ourstory.jpg"
 
 const OurStory = () => {
     return (
         <div className="flex flex-col items-center justify-center gap-15 lg:gap-20 px-10 bg-white dark:bg-gray-900 min-h-[700px] py-20 transition-colors duration-300">
             <div className="flex xl:flex-row flex-col items-center justify-center gap-10 xl:gap-25">
-                <div className="flex flex-col gap-10 w-1/2">
+                <motion.div 
+                    className="flex flex-col gap-10 w-1/2"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                >
                     <div className="flex flex-col gap-10 ">
                         <div className="flex flex-col justify-center xl:items-start gap-5">
                         <span className="urbanist-regular border border-gray-200 dark:border-gray-700 p-2 rounded-4xl w-fit dark:text-gray-300">Story</span>
@@ -18,8 +25,14 @@ const OurStory = () => {
                             </span>
                         </div>
                     </div>
-                </div>
-                <div className="">
+                </motion.div>
+                <motion.div 
+                    className=""
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                >
                     <div className="rounded-4xl xl:w-[540px] xl:h-[355px] flex justify-end items-center overflow-hidden">
                         <div className="">
                             <img
@@ -29,7 +42,7 @@ const OurStory = () => {
                             />
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     )

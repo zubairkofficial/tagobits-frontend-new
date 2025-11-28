@@ -1,1 +1,0 @@
-import{j as o}from"./index-Da5t1eyU.js";import{H as t,C as n,f as s}from"./lazyhomecomponents-V0uEHLG1.js";const a=()=>o.jsxs("div",{children:[o.jsx(t,{component:n}),o.jsx(t,{component:s})]});export{a as default};

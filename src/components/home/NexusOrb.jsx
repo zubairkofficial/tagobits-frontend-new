@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import tagocashaxiosinstance, { API_BASE_URL } from '../../utils/tagocashaxiosinstance';
 
 // Wrapper for individual logos to give them the glassy container style and hover effects
-const LogoWrapper = ({ children, className = "", isHighlighted = false, isHovered = false, animationDelay = 0, title = null }) => {
+const LogoWrapper = ({ children, className = "", isHighlighted = false, isHovered = false, title = null }) => {
     const baseClasses = "backdrop-blur-xl rounded-2xl flex items-center justify-center transition-all duration-300 relative";
     
     const highlightedClasses = isHighlighted
-        ? "dark:bg-gray-700/50 bg-gray-100/80 border border-blue-400/50 dark:shadow-blue-500/20 shadow-blue-400/30 shadow-2xl animate-breathing-glow"
-        : `dark:bg-white/5 bg-white/60 border border-gray-200/50 dark:border-white/10 ${!isHovered ? 'animate-float' : ''}`;
+        ? "dark:bg-gray-700/50 bg-gray-100/80 border border-blue-400/50 dark:shadow-blue-500/20 shadow-blue-400/30 shadow-2xl"
+        : "dark:bg-white/5 bg-white/60 border border-gray-200/50 dark:border-white/10";
     
     const hoverClasses = isHovered
         ? "dark:bg-gray-600/50 bg-gray-200/80 border-blue-400/60 scale-110 dark:shadow-blue-400/30 shadow-blue-400/40 shadow-2xl z-[60]"
@@ -16,11 +16,10 @@ const LogoWrapper = ({ children, className = "", isHighlighted = false, isHovere
     return (
         <div 
             className={`${baseClasses} ${highlightedClasses} ${hoverClasses} ${className}`}
-            style={{ animationDelay: `${animationDelay}s` }}
         >
             {children}
             {isHovered && title && title.trim() !== '' && title !== 'undefined' && (
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-gray-800 dark:bg-gray-700 text-white text-sm px-3 py-1 rounded-md shadow-md opacity-0 animate-slide-up">
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-gray-800 dark:bg-gray-700 text-white text-sm px-3 py-1 rounded-md shadow-md">
                     {title}
                 </div>
             )}
@@ -117,7 +116,6 @@ const LogoGrid = ({ logos }) => {
                                 <LogoWrapper
                                     className="w-30 h-30"
                                     isHovered={hoveredId === logo.id}
-                                    animationDelay={i * 0.2}
                                     title={logo.title}
                                 >
                                     <img
@@ -152,46 +150,6 @@ const NexusOrb = () => {
 
     return (
         <div className="w-full flex items-center justify-center font-sans p-8 overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
-            <style>
-                {`
-                    @keyframes float {
-                        0% { transform: translateY(0px); }
-                        50% { transform: translateY(-10px); }
-                        100% { transform: translateY(0px); }
-                    }
-                    .animate-float {
-                        animation: float 4s ease-in-out infinite;
-                    }
-
-                    @keyframes breathing-glow {
-                        0% { box-shadow: 0 0 20px 0px rgba(59, 130, 246, 0.3); }
-                        50% { box-shadow: 0 0 35px 10px rgba(59, 130, 246, 0.1); }
-                        100% { box-shadow: 0 0 20px 0px rgba(59, 130, 246, 0.3); }
-                    }
-                    @keyframes breathing-glow-light {
-                        0% { box-shadow: 0 0 20px 0px rgba(59, 130, 246, 0.2); }
-                        50% { box-shadow: 0 0 35px 10px rgba(59, 130, 246, 0.05); }
-                        100% { box-shadow: 0 0 20px 0px rgba(59, 130, 246, 0.2); }
-                    }
-                    .animate-breathing-glow {
-                        animation: breathing-glow 3s ease-in-out infinite;
-                    }
-                    .dark .animate-breathing-glow {
-                        animation: breathing-glow 3s ease-in-out infinite;
-                    }
-                    :not(.dark) .animate-breathing-glow {
-                        animation: breathing-glow-light 3s ease-in-out infinite;
-                    }
-                    @keyframes slide-up {
-                        0% { opacity: 0; transform: translateY(10px); }
-                        100% { opacity: 1; transform: translateY(0); }
-                    }
-                    .animate-slide-up {
-                        animation: slide-up 0.3s ease-out forwards;
-                    }
-                `}
-            </style>
-
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.4),rgba(0,0,0,0))]"></div>
             </div>

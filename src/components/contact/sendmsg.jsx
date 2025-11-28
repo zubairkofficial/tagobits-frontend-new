@@ -1,9 +1,17 @@
+import { motion } from "framer-motion"
 import { FaStar } from "react-icons/fa6";
+
 const SendMsg = () => {
     return (
         <div className="flex flex-col items-center justify-center py-20 mx-15 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="flex xl:flex-row flex-col items-center justify-center w-full">
-                <div className="flex flex-col gap-10 w-1/2 justify-center items-center">
+                <motion.div 
+                    className="flex flex-col gap-10 w-1/2 justify-center items-center"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                >
                     <div className="flex flex-col gap-10 w-1/2">
                         <div className="flex flex-col justify-center xl:items-start gap-5">
                             <div className="flex flex-row items-center gap-2 urbanist-regular border border-gray-200 dark:border-gray-700 p-3 rounded-4xl w-fit bg-white dark:bg-gray-800 transition-colors duration-300">
@@ -21,8 +29,14 @@ const SendMsg = () => {
                             We're here to help! Reach out with your questions, feedback, or suggestions, and we'll get back to you as soon as possible."                            </span>
                         </div>
                     </div>
-                </div>
-                <div className="w-1/2 flex justify-center items-center">
+                </motion.div>
+                <motion.div 
+                    className="w-1/2 flex justify-center items-center"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                >
                 <form className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8 w-full max-w-[560px] h-[598px] bg-white dark:bg-gray-800 transition-colors duration-300">
                     <div className="mb-6">
                         <label htmlFor="name" className="block mb-2 urbanist-medium text-gray-900 dark:text-gray-200">
@@ -66,7 +80,7 @@ const SendMsg = () => {
                         </button>
                     </div>
                 </form>
-                </div>
+                </motion.div>
             </div>
         </div>
     )

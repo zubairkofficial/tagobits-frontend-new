@@ -1,34 +1,56 @@
-import { useRef } from 'react';
+import { motion } from "framer-motion"
 import partnershipphoto from "../../assets/home/partnerships/partnership2.png"
 import linegraphline from "../../assets/home/whytago/linegraphline.png"
 import Button from "../../components/button"
-import ScrollFadeIn from "../common/ScrollFadeIn"
-import VariableProximity from "../VariableProximity"
 
 const Partnership = () => {
-    const containerRef = useRef(null);
-    
     return (
-        <div ref={containerRef} className="flex flex-col items-center my-30 lg:px-30 xl:px-40 bg-white dark:bg-[#040b1f] transition-colors duration-300">
-            <div className="flex xl:flex-row flex-col items-center justify-center gap-15 xl:gap-0">
-                <ScrollFadeIn className="flex flex-col items-center gap-10 xl:w-1/2">
+        <div className="flex flex-col items-center my-30 lg:px-30 xl:px-40 bg-white dark:bg-gray-900 transition-colors duration-300">
+            <div className="flex xl:flex-row flex-col items-center justify-center gap-15 xl:gap-20">
+                <motion.div 
+                    className="flex flex-col items-center gap-10 xl:w-1/2"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                     <div className="flex flex-col items-center xl:items-start">
-                        <span className="w-fit border rounded-4xl my-5 xl:my-0 px-4 py-2 border-gray-300 bg-white text-gray-800 dark:border-blue-500/40 dark:bg-white/5 dark:text-blue-100 transition-colors duration-300">
+                        <motion.span 
+                            className="w-fit border rounded-4xl my-5 xl:my-0 px-4 py-2 border-gray-300 bg-white text-gray-800 dark:border-blue-500/40 dark:bg-white/5 dark:text-blue-100 transition-colors duration-300"
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, margin: "-100px" }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                        >
                             Partnerships
-                        </span>
-                        <VariableProximity
-                            label="Great partnerships create better products"
-                            fromFontVariationSettings="'wght' 700"
-                            toFontVariationSettings="'wght' 900"
-                            containerRef={containerRef}
-                            radius={200}
-                            falloff="gaussian"
-                            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary dark:text-blue-400 leading-[1.1] block"
-                        />
+                        </motion.span>
+                        <motion.h2 
+                            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary dark:text-blue-400 leading-[1.1]"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, margin: "-100px" }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
+                            Great partnerships create better products
+                        </motion.h2>
                     </div>
-                    <span className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275] dark:text-blue-100/80">Great partnerships make great products for customers. We welcome your interest in partnering
-                        with us.</span>
-                    <div className='flex flex-row gap-2 xl:gap-8 justify-center xl:justify-start'>
+                    <motion.span 
+                        className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275] dark:text-blue-100/80"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                    >
+                        Great partnerships make great products for customers. We welcome your interest in partnering
+                        with us.
+                    </motion.span>
+                    <motion.div 
+                        className='flex flex-row gap-2 xl:gap-8 justify-center xl:justify-start'
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                    >
                         {/* <div 
                             className="text-white px-10 py-3 text-center rounded-[12.27px] cursor-pointer border border-primary hover:text-primary transition-all duration-300"
                             style={{
@@ -62,16 +84,28 @@ const Partnership = () => {
                             hoverColor="#ffffff"
                             hoverBorder="2px solid #ffffff"
                         />
-                    </div>
-                </ScrollFadeIn>
-                <ScrollFadeIn className="w-8/9 xl:w-2/5 flex justify-end" delay={0.15}>
-                    <div className="relative xl:w-[540px] xl:h-[685px] rounded-xl overflow-hidden flex items-center justify-center hover:scale-105 transition-all duration-300">
+                    </motion.div>
+                </motion.div>
+                <motion.div 
+                    className="w-8/9 xl:w-2/5 flex justify-end mt-10 xl:mt-0"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    <div className="relative xl:w-[540px] xl:h-[500px] rounded-xl overflow-hidden flex items-center justify-center hover:scale-105 transition-all duration-300">
                         <img
                             src={partnershipphoto}
                             className="w-full h-full object-cover rounded-4xl"
                             alt=""
                         />
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none ">
+                        <motion.div 
+                            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: false, margin: "-100px" }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                        >
                             <div
                                 className="border border-white/80 hover:bg-white/10 hover:scale-110 rounded-4xl flex flex-col justify-end transition-all duration-300 group pointer-events-auto"
                                 style={{
@@ -80,7 +114,13 @@ const Partnership = () => {
                                     boxSizing: "border-box",
                                 }}
                             >
-                                <div className="h-1/4 backdrop-blur-xl rounded-b-4xl flex flex-col gap-2 p-5 pt-10 justify-center">
+                                <motion.div 
+                                    className="h-1/4 backdrop-blur-xl rounded-b-4xl flex flex-col gap-2 p-5 pt-10 justify-center"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: false, margin: "-100px" }}
+                                    transition={{ duration: 0.6, delay: 0.5 }}
+                                >
                                     <div className="flex items-center gap-2">
                                         <div className="h-3 w-3 bg-white rounded-full"></div>
                                         <span className="text-white urbanist-regular text-[12px] sm:text-[14px] md:text-[16px]">Growth Rate</span>
@@ -94,11 +134,11 @@ const Partnership = () => {
                                             <img src={linegraphline} alt="" />
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
-                </ScrollFadeIn>
+                </motion.div>
             </div>
         </div>
     )
