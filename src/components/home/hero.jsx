@@ -12,11 +12,11 @@ import { MdOutlineRealEstateAgent } from "react-icons/md";
 const Hero = () => {
     const { theme } = useTheme();
     return (
-        <div className='relative overflow-x-hidden overflow-y-visible bg-white dark:bg-transparent transition-colors duration-300 -mt-3 w-full'>
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 dark:hidden">
+        <div className='relative overflow-hidden bg-white dark:bg-transparent transition-colors duration-300 -mt-3 w-full'>
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 dark:hidden overflow-hidden">
                 <div className="w-[800px] h-[800px] bg-[radial-gradient(circle,_rgba(59,130,246,0.2)_0%,_transparent_70%)] rounded-full"></div>
             </div>
-            <div className="absolute inset-0 hidden dark:block z-0">
+            <div className="absolute inset-0 hidden dark:block z-0 overflow-hidden">
                 <LiquidEther
                     className="w-full h-full"
                     colors={['#218DCD', '#2A63AA', '#2E388E']}
@@ -25,8 +25,8 @@ const Hero = () => {
                     autoIntensity={2}
                 />
             </div>
-            <div className="relative z-10 flex flex-col items-center sm:gap-8 md:gap-5 lg:gap-15 px-4 sm:px-6 md:px-10 sm:pt-5 pt-5 w-full max-w-full">
-                <div className="relative w-full max-w-[200px] h-[100px] sm:h-[150px] md:h-[150px] flex items-center justify-center mb-2 sm:mb-4">
+            <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-4 sm:px-6 md:px-10 pt-8 sm:pt-10 md:pt-12 pb-10 sm:pb-12 md:pb-16 w-full max-w-full">
+                <div className="relative w-full max-w-[150px] h-[75px] sm:h-[100px] md:h-[100px] flex items-center justify-center">
                     <img 
                         src="/Comp1-ezgif.com-gif-to-webp-converter.webp" 
                         alt="Animation" 

@@ -36,7 +36,7 @@ const Navbar = () => {
                 <div className="relative flex justify-center md:justify-between bg-gradient-to-r from-[#CBD6FF33] via-[#CBD6FF66] to-[#CBD6FF33] dark:from-[#14213d]/80 dark:via-[#1b2a52]/80 dark:to-[#14213d]/80 items-center p-4 backdrop-blur-2xl rounded-[16px] transition-colors duration-300 pointer-events-auto shadow-lg shadow-black/20">
                 <Link to="/" className='cursor-pointer flex items-center transition-all duration-300'>
                     <img 
-                        src={theme === 'dark' ? '/tago bit-02.png' : 'tagobitslogo.png'} 
+                        src={theme === 'dark' ? '/tago bit-01.png' : 'tagobitslogo.png'} 
                         className='h-8 transition-all duration-300' 
                         alt="TagoBits Logo" 
                     />
