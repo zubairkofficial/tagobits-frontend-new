@@ -18,7 +18,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      {children}
+      <main className="pt-20 md:pt-24">
+        {children}
+      </main>
       <Footer />
     </>
   );

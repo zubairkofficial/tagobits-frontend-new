@@ -1,16 +1,67 @@
-//components
-import Button from '../button'
-import LiquidEther from '../LiquidEther'
-import TextType from '../TextType'
-import { useTheme } from '../../context/ThemeContext'
+import { useEffect, useState } from 'react';
 
-// icons
-import { RiBankLine } from "react-icons/ri";
-import { GiCheckedShield } from "react-icons/gi";
-import { MdOutlineRealEstateAgent } from "react-icons/md";
+// components
+import Button from '../button';
+import LiquidEther from '../LiquidEther';
+import TextType from '../TextType';
+import { useTheme } from '../../context/ThemeContext';
+
+const HERO_CARDS = [
+    {
+        id: 'qr',
+        src: '/qr code.png',
+        alt: 'QR code payment',
+    },
+    {
+        id: 'secure',
+        src: '/secure payment.png',
+        alt: 'Secure payment confirmation',
+    },
+    {
+        id: 'card',
+        src: '/card.png',
+        alt: 'Tagobits virtual card',
+    },
+];
 
 const Hero = () => {
     const { theme } = useTheme();
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % HERO_CARDS.length);
+        }, 2500);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const centerCard = HERO_CARDS[activeIndex];
+    const rightCard = HERO_CARDS[(activeIndex + 1) % HERO_CARDS.length];
+    const leftCard = HERO_CARDS[(activeIndex + 2) % HERO_CARDS.length];
+
+    // Rotation helpers so side cards stay tilted,
+    // but images inside the phone stay perfectly straight.
+    const getSideRotationClass = (id, position) => {
+        if (id === 'card') {
+            // Card strongly tilted on both sides (side positions only)
+            return position === 'left' ? 'rotate-[-18deg]' : 'rotate-[18deg]';
+        }
+        if (id === 'secure') {
+            // Secure payment slightly tilted
+            return position === 'left' ? 'rotate-[-14deg]' : 'rotate-[10deg]';
+        }
+        // QR code very light tilt
+        return position === 'left' ? 'rotate-[-8deg]' : 'rotate-[6deg]';
+    };
+
+    const getCenterRotationClass = (id) => {
+        // Counter‑rotate the pre‑tilted assets so they look straight INSIDE the phone
+        if (id === 'card') return 'rotate-[9deg]';
+        if (id === 'secure') return 'rotate-[-9deg]';
+        return '';
+    };
+
     return (
         <div className='relative overflow-hidden bg-white dark:bg-transparent transition-colors duration-300 -mt-3 w-full'>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 dark:hidden overflow-hidden">
@@ -25,22 +76,19 @@ const Hero = () => {
                     autoIntensity={2}
                 />
             </div>
-            <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-4 sm:px-6 md:px-10 pt-8 sm:pt-10 md:pt-12 pb-10 sm:pb-12 md:pb-16 w-full max-w-full">
-                <div className="relative w-full max-w-[150px] h-[75px] sm:h-[100px] md:h-[100px] flex items-center justify-center">
-                    <img 
-                        src="/Comp1-ezgif.com-gif-to-webp-converter.webp" 
-                        alt="Animation" 
-                        className="w-full h-full object-contain"
-                    />
-                </div>
-                <h1 className={`text-[40px] sm:text-[52px] md:text-[60px] lg:text-[68px] xl:text-[72px] roboto-medium text-center max-w-[872px] leading-[1.1] ${theme === 'dark' ? 'text-white' : 'text-primary'}`}>
+            <div className="relative z-10 flex flex-col items-center px-4 sm:px-6 md:px-10 pt-10 sm:pt-12 md:pt-14 w-full max-w-6xl mx-auto">
+                <h1
+                    className={`text-[36px] sm:text-[44px] md:text-[52px] lg:text-[60px] xl:text-[64px] roboto-medium text-center max-w-[872px] leading-[1.1] ${
+                        theme === 'dark' ? 'text-white' : 'text-primary'
+                    }`}
+                >
                     The Digital Money for{' '}
                     <TextType
                         as="span"
                         text={[
+                            'Global payments',
                             'Borderless payments',
-                            'Global Transactions',
-                            'Payment Solutions'
+                            'Global transactions',
                         ]}
                         typingSpeed={55}
                         deletingSpeed={35}
@@ -53,7 +101,7 @@ const Hero = () => {
                             const spaceIndex = fullText.indexOf(' ');
                             const firstWordColor = theme === 'dark' ? 'text-[#60A5FA]' : 'text-black';
                             const restColor = theme === 'dark' ? 'text-white' : 'text-primary';
-                            
+
                             if (spaceIndex === -1) {
                                 return <span className={firstWordColor}>{currentText}</span>;
                             }
@@ -70,53 +118,48 @@ const Hero = () => {
                         }}
                     />
                 </h1>
-                <p className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center max-w-[780px] text-[#576275] dark:text-gray-400">
-                    The TagoBits platform enables payment settlement in seconds and at one tenth of the cost of traditional fiat payments.
-                </p>
-                <div>
-                    <div className="flex flex-col md:flex-row gap-15 md:gap-20">
-                        <div className="flex flex-col gap-2">
-                            <div className="flex flex-row gap-2 justify-center">
-                                <span className="bg-primary dark:bg-blue-500 text-white w-[25px] h-[25px] rounded-full flex justify-center items-center"> <RiBankLine size={18} /> </span>
-                                <span className="urbanist-bold text-[14px] sm:text-[16px] text-gray-900 dark:text-white">434,343,000</span>
-                            </div>
-                            <span className="urbanist-regular text-center text-[12px] sm:text-[14px] text-[#576275] dark:text-gray-400">TagoCash Circulation</span>
+
+
+                <div className=" w-full max-w-5xl flex items-center justify-center">
+                    <div className="relative w-full flex items-center justify-center">
+                        {/* Left floating card (desktop only) */}
+                        <div className="hidden md:block absolute left-0 lg:-left-10 top-1/2 -translate-y-1/2">
+                            <img
+                                key={leftCard.id}
+                                src={leftCard.src}
+                                alt={leftCard.alt}
+                                className={`w-[110px] lg:w-[140px] xl:w-[160px] drop-shadow-xl rounded-2xl ${getSideRotationClass(leftCard.id, 'left')}`}
+                            />
                         </div>
-                        <div className="flex flex-col gap-2">
-                            <div className="flex flex-row gap-2 justify-center">
-                                <span className="text-primary dark:text-blue-400"> <GiCheckedShield size={25} /> </span>
-                                <span className="urbanist-bold text-[14px] sm:text-[16px] dark:text-white">100%</span>
-                            </div>
-                            <span className="urbanist-regular text-center text-[12px] sm:text-[14px] text-[#576275] dark:text-gray-400">TagoCash Circulation</span>
+
+                        {/* Right floating card (desktop only) */}
+                        <div className="hidden md:block absolute right-0 lg:-right-10 top-1/2 -translate-y-1/2">
+                            <img
+                                key={rightCard.id}
+                                src={rightCard.src}
+                                alt={rightCard.alt}
+                                className={`w-[110px] lg:w-[140px] xl:w-[160px] drop-shadow-xl rounded-2xl ${getSideRotationClass(rightCard.id, 'right')}`}
+                            />
                         </div>
-                        <div className="flex flex-col gap-2">
-                            <div className="flex flex-row gap-2 justify-center">
-                                <span className="text-primary dark:text-blue-400"> <MdOutlineRealEstateAgent size={25} /> </span>
-                                <span className="urbanist-bold text-[14px] sm:text-[16px] dark:text-white">$450,000,000</span>
+
+                        {/* Center phone with animated screen */}
+                        <div className="relative w-[260px] sm:w-[330px] md:w-[350px] lg:w-[360px] xl:w-[385px] mx-auto">
+                            <img
+                                src="/Iphone 14 - 2.png"
+                                alt="Tagobits mobile app"
+                                className="w-full drop-shadow-2xl"
+                            />
+                            {/* Screen content (uses active card) */}
+                            <div className="absolute right-[31%] top-[26%] flex items-center justify-center pointer-events-none">
+                                <img
+                                    key={centerCard.id}
+                                    src={centerCard.src}
+                                    alt={centerCard.alt}
+                                    className={`max-w-[110px] sm:max-w-[162px] hero-center-slide ${getCenterRotationClass(centerCard.id)}`}
+                                />
                             </div>
-                            <span className="urbanist-regular text-center text-[12px] sm:text-[14px] text-[#576275] dark:text-gray-400">TagoCash Circulation</span>
                         </div>
                     </div>
-                </div>
-                <div className='flex flex-row gap-8'>
-                    <Button 
-                        background="linear-gradient(to right, #2A3E9C, #1478C7)" 
-                        color="#ffffff" 
-                        buttontext="Contact Us" 
-                        to="/contactus"
-                        hoverBackground="#ffffff" 
-                        hoverColor="#235BB2"
-                        hoverBorder="2px solid #235BB2"
-                    />
-                    <Button 
-                        background="#ffffff" 
-                        color="#235BB2" 
-                        buttontext="Learn More" 
-                        border="2px solid #235BB2" 
-                        hoverBackground="linear-gradient(to right, #2A3E9C, #1478C7)" 
-                        hoverColor="#ffffff" 
-                        hoverBorder=""
-                    />
                 </div>
             </div>
         </div>

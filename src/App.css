@@ -2,8 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap');
 
-/* Prevent horizontal overflow */
+/* Prevent default browser margin & horizontal overflow */
 html, body {
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
@@ -64,6 +66,22 @@ html, body {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
+}
+
+/* Hero card animation (image slides in from right into the phone) */
+@keyframes hero-center-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.hero-center-slide {
+  animation: hero-center-slide 0.7s ease-in-out;
 }
 
 /* StarBorder animations */

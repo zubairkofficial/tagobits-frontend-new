@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import Button from './button'
-import LiquidEther from './LiquidEther'
-import { RxHamburgerMenu } from "react-icons/rx";
+import Button from './button';
+import LiquidEther from './LiquidEther';
+import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useTheme } from '../context/ThemeContext';
 import { HiSun, HiMoon } from 'react-icons/hi';
 
@@ -22,7 +22,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="relative z-50 bg-transparent">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-transparent">
             <div className="absolute inset-0 hidden dark:block pointer-events-none opacity-80 -z-10">
                 <LiquidEther
                     className="w-full h-full"
@@ -32,8 +32,8 @@ const Navbar = () => {
                     autoIntensity={1.5}
                 />
             </div>
-            <div className="relative p-3 lg:p-7 lg:px-30 pb-0 overflow-hidden">
-                <div className="relative flex justify-center md:justify-between bg-gradient-to-r from-[#CBD6FF33] via-[#CBD6FF66] to-[#CBD6FF33] dark:from-[#14213d]/80 dark:via-[#1b2a52]/80 dark:to-[#14213d]/80 items-center p-4 backdrop-blur-2xl rounded-[16px] transition-colors duration-300 pointer-events-auto shadow-lg shadow-black/20">
+            <div className="relative w-full">
+                <div className="relative flex items-center justify-between bg-white dark:bg-[#020617] border border-gray-100 dark:border-white/10 rounded-b-3xl shadow-md shadow-black/10 h-16 md:h-20 px-4 md:px-8 transition-colors duration-300 pointer-events-auto">
                 <Link to="/" className='cursor-pointer flex items-center transition-all duration-300'>
                     <img 
                         src={theme === 'dark' ? '/tago bit-01.png' : 'tagobitslogo.png'} 
@@ -46,7 +46,7 @@ const Navbar = () => {
                         to="/"
                         className={`urbanist-regular text-[16px] transition-colors ${
                             location.pathname === '/' 
-                                ? 'text-[#1a3a7a] dark:text-blue-300 font-medium' 
+                                ? 'text-[#1a3a7a] dark:text-blue-300 font-bold' 
                                 : 'text-primary dark:text-blue-400 hover:text-buttonsecondary dark:hover:text-blue-300'
                         }`}
                     >
@@ -56,7 +56,7 @@ const Navbar = () => {
                         to="/about"
                         className={`urbanist-regular text-[16px] transition-colors ${
                             location.pathname === '/about' 
-                                ? 'text-[#1a3a7a] dark:text-blue-300 font-medium' 
+                                ? 'text-[#1a3a7a] dark:text-blue-300 font-bold' 
                                 : 'text-primary dark:text-blue-400 hover:text-buttonsecondary dark:hover:text-blue-300'
                         }`}
                     >
@@ -66,7 +66,7 @@ const Navbar = () => {
                         to="/contactus"
                         className={`urbanist-regular text-[16px] transition-colors ${
                             location.pathname === '/contactus' 
-                                ? 'text-[#1a3a7a] dark:text-blue-300 font-medium' 
+                                ? 'text-[#1a3a7a] dark:text-blue-300 font-bold' 
                                 : 'text-primary dark:text-blue-400 hover:text-buttonsecondary dark:hover:text-blue-300'
                         }`}
                     >
@@ -108,9 +108,41 @@ const Navbar = () => {
                         onClick={handleGetStarted}
                     />
                 </div>
-                <div className='md:hidden absolute left-5'>
-                    <button onClick={toggleMenu} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
-                        <RxHamburgerMenu className="text-2xl text-primary dark:text-blue-400" />
+                <div className='md:hidden flex items-center gap-3'>
+                    {/* Mobile theme toggle next to menu icon */}
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 rounded-full bg-primary/10 dark:bg-blue-500/10 hover:bg-primary/20 dark:hover:bg-blue-500/20 transition-all duration-300"
+                        aria-label="Toggle theme"
+                    >
+                        <div className="relative w-5 h-5">
+                            <HiSun
+                                className={`absolute inset-0 w-5 h-5 text-primary dark:text-yellow-300 transition-all duration-500 ${
+                                    theme === 'dark'
+                                        ? 'opacity-100 rotate-0 scale-100'
+                                        : 'opacity-0 rotate-180 scale-0'
+                                }`}
+                            />
+                            <HiMoon
+                                className={`absolute inset-0 w-5 h-5 text-primary dark:text-blue-400 transition-all duration-500 ${
+                                    theme === 'light'
+                                        ? 'opacity-100 rotate-0 scale-100'
+                                        : 'opacity-0 -rotate-180 scale-0'
+                                }`}
+                            />
+                        </div>
+                    </button>
+
+                    <button
+                        onClick={toggleMenu}
+                        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                        aria-label="Toggle menu"
+                    >
+                        {isMenuOpen ? (
+                            <RxCross2 className="text-2xl text-primary dark:text-blue-400" />
+                        ) : (
+                            <RxHamburgerMenu className="text-2xl text-primary dark:text-blue-400" />
+                        )}
                     </button>
                 </div>
                 </div>
@@ -149,31 +181,6 @@ const Navbar = () => {
                     >
                         Contact Us
                     </Link>
-                    
-                    {/* Theme Toggle for Mobile */}
-                    <button
-                        onClick={toggleTheme}
-                        className="p-3 rounded-full bg-primary/10 dark:bg-blue-500/10 hover:bg-primary/20 dark:hover:bg-blue-500/20 transition-all duration-300"
-                        aria-label="Toggle theme"
-                    >
-                        <div className="relative w-6 h-6">
-                            <HiSun
-                                className={`absolute inset-0 w-6 h-6 text-primary dark:text-yellow-300 transition-all duration-500 ${
-                                    theme === 'dark'
-                                        ? 'opacity-100 rotate-0 scale-100'
-                                        : 'opacity-0 rotate-180 scale-0'
-                                }`}
-                            />
-                            <HiMoon
-                                className={`absolute inset-0 w-6 h-6 text-primary dark:text-blue-400 transition-all duration-500 ${
-                                    theme === 'light'
-                                        ? 'opacity-100 rotate-0 scale-100'
-                                        : 'opacity-0 -rotate-180 scale-0'
-                                }`}
-                            />
-                        </div>
-                    </button>
-                    
                     <Button
                         background="linear-gradient(to right, #2A3E9C, #1478C7)"
                         color="#ffffff"
