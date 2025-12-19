@@ -1,60 +1,98 @@
 import { motion } from "framer-motion"
-import backimage from '../../assets/home/worldwide/backimage.png';
-import lightbluepin from '../../assets/home/worldwide/lightbluepin.png';
-import darkbluepin from '../../assets/home/worldwide/darkbluepin.png';
-import redpin from '../../assets/home/worldwide/redpin.png';
-import orangepin from '../../assets/home/worldwide/orangepin.png';
-import purplepin from '../../assets/home/worldwide/purplepin.png';
+import { useTheme } from "../../context/ThemeContext"
 
-
-const TagoCore = () => {
+const Worldwide = () => {
+    const { theme } = useTheme();
     return (
-        <div className="flex flex-col xl:flex-row max-w-[1900px] mx-auto items-center justify-center px-10 lg:px-10 xl:px-30 lg:gap-0 bg-white dark:bg-gray-900 transition-colors duration-300">
-            <motion.div 
-                className="flex flex-col mb-30 lg:w-1/2"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
+        <div className="max-w-[1980px] mx-auto w-full mt-6 md:mt-10 lg:mt-16 mb-0 lg:mb-2 px-4 md:px-10 lg:px-30 bg-white dark:bg-gray-900 transition-colors duration-300">
+            <motion.div
+                className="flex flex-col items-center"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-150px" }}
+                transition={{ 
+                    duration: 0.7, 
+                    ease: "easeOut"
+                }}
             >
-                <span className="urbanist-regular border border-gray-200 dark:border-gray-700 p-2 rounded-4xl w-fit dark:text-gray-300">Worldwide Users</span>
-                <h2 className="text-primary dark:text-blue-400 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-[1.1]">
-                    Powering Confidence Worldwide
-                </h2>
-                <span className="urbanist-regular text-gray-400 dark:text-gray-400 text-[16px] sm:text-[18px] md:text-[20px]">The rigor of TagoBits has earned the confidence of users, businesses, and governments worldwide.</span>
-                <div className="flex pt-20 gap-20">
-                    <div className="flex flex-col">
-                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-primary dark:text-blue-400">17M+</span>
-                        <span className="text-gray-500 dark:text-gray-400 text-[12px] sm:text-[14px] md:text-[16px]">Active TagoCash users worldwide</span>
-                    </div>
-                    <div className="flex flex-col">
-                        <span className="urbanist-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-primary dark:text-blue-400">196+</span>
-                        <span className="text-gray-500 dark:text-gray-400 text-[12px] sm:text-[14px] md:text-[16px]">Borderless reach across the globe</span>
-                    </div>
-                </div>
-            </motion.div>
-            <motion.div 
-                className="relative md:w-180 lg:w-1/2 lg:h-full bg-cover bg-center rounded-lg"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-            >
-                <div className='absolute xss:top-3 xss:left-2 xs:top-10 xs:left-7 sm:top-10 sm:left-5 md:top-0 md:left-0 w-full h-full'>
-                    <img src={lightbluepin} alt="Background" className="absolute left-[20%] top-[-57%] sm:left-[30%] sm:top-[-35%] md:left-[32%] md:top-[-15%] lg:left-[30%] lg:top-[-20%] xl:left-[34%] xl:top-[-12%] scale-60 hover:scale-67 xs:scale-75 xs:hover:scale-85 sm:scale-105 sm:hover:scale-112 transition-all duration-300" />
-                    <img src={darkbluepin} alt="Background" className="absolute left-[30%] top-[-25%] sm:left-[38%] sm:top-[0%] md:left-[45%] md:top-[19%] lg:left-[42%] lg:top-[4%] xl:left-[44%] xl:top-[22%] scale-50 hover:scale-57 xs:scale-65 xs:hover:scale-72 sm:scale-100 sm:hover:scale-107 transition-all duration-300" />
-                    <img src={redpin} alt="Background" className="absolute left-[37%] top-[10%] sm:left-[47%] sm:top-[30%] md:left-[52%] md:top-[50%] lg:left-[50%] lg:top-[36%] xl:left-[52%] xl:top-[52%] scale-50 hover:scale-57 xs:scale-65 xs:hover:scale-72 sm:scale-100 sm:hover:scale-107 transition-all duration-300" />
-                    <img src={orangepin} alt="Background" className="absolute left-[48%] top-[-35%] sm:left-[60%] sm:top-[-10%] md:left-[63%] md:top-[10%] lg:left-[60%] lg:top-[-5%] xl:left-[64%] xl:top-[13%] scale-40 hover:scale-47 xs:scale-55 xs:hover:scale-62 sm:scale-92 sm:hover:scale-100 transition-all duration-300" />
-                    <img src={purplepin} alt="Background" className="absolute left-[60%] top-[-45%] sm:left-[70%] sm:top-[-25%] md:left-[71%] md:top-[-3%] lg:left-[67%] lg:top-[-18%] xl:left-[71%] xl:top-[0%] scale-60 hover:scale-67 xs:scale-75 xs:hover:scale-85 sm:scale-105 sm:hover:scale-112 transition-all duration-300" />
-                    <img src={lightbluepin} alt="Background" className="absolute left-[73%] top-[20%] sm:left-[85%] sm:top-[40%] md:left-[87%] md:top-[55%] lg:left-[83%] lg:top-[52%] xl:left-[87%] xl:top-[60%] scale-50 hover:scale-57 xs:scale-65 xs:hover:scale-72 sm:scale-100 sm:hover:scale-107 transition-all duration-300" />
-                    <img src={redpin} alt="Background" className="absolute left-[-8%] top-[-35%] sm:left-[0%] sm:top-[-10%] md:left-[5%] md:top-[6%] lg:left-[4%] lg:top-[-2%] xl:left-[4%] xl:top-[11%] scale-60 hover:scale-67 xs:scale-75 xs:hover:scale-85 sm:scale-105 sm:hover:scale-112 transition-all duration-300" />
-                    <img src={orangepin} alt="Background" className="absolute left-[12%] top-[10%] sm:left-[20%] sm:top-[30%] md:left-[25%] md:top-[50%] lg:left-[25%] lg:top-[40%] xl:left-[27%] xl:top-[55%] scale-50 hover:scale-57 xs:scale-65 xs:hover:scale-72 sm:scale-100 sm:hover:scale-107 transition-all duration-300" />
-                    <img src={purplepin} alt="Background" className="absolute left-[-3%] top-[-20%] sm:left-[8%] sm:top-[2%] md:left-[12%] md:top-[20%] lg:left-[10%] lg:top-[10%] xl:left-[13%] xl:top-[23%] scale-40 hover:scale-47 xs:scale-55 xs:hover:scale-62 sm:scale-92 sm:hover:scale-100 transition-all duration-300" />
-                </div>
-                <img src={backimage} className='w-full h-full object-cover' />
+                {/* Map Image with Overlays */}
+                <motion.div 
+                    className="relative w-full max-w-5xl min-h-[400px] sm:min-h-[400px] md:min-h-[600px]"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+                >
+                    <img 
+                        src={theme === 'dark' ? "/map view black.png" : "/map view.png"} 
+                        alt="Worldwide map" 
+                        className="w-full h-auto object-contain rounded-2xl"
+                    />
+
+                    {/* Title - positioned over map */}
+                    <motion.h2 
+                        className="absolute top-8 md:top-3 lg:top-5 left-0 right-0 text-center urbanist-bold text-[20px] sm:text-[28px] md:text-[32px] lg:text-[36px] text-[#111827] dark:text-white leading-[1.3] px-2"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                    >
+                        <div>Powering Confidence</div>
+                        <div>Worldwide</div>
+                    </motion.h2>
+
+                    {/* Description - positioned over map below title */}
+                    <motion.p 
+                        className="absolute top-32 sm:top-28 md:top-24 lg:top-26 left-0 right-0 text-center urbanist-regular text-[12px] sm:text-[15px] md:text-[18px] lg:text-[19px] text-[#576275] dark:text-white px-4 max-w-3xl mx-auto"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        The rigor of TagoBits has earned the confidence <br /> of users, businesses, and governments worldwide.
+                    </motion.p>
+
+                    {/* Stats - positioned over map (left and right, closer together) */}
+                    <motion.div 
+                        className="absolute md:top-75 lg:top-80 top-[50%] sm:top-[70%] md:top-[75%] left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-3 sm:gap-6 md:gap-8 lg:gap-10 items-center px-2"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                        <motion.div 
+                            className="flex flex-col items-center"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: 0.5 }}
+                        >
+                            <span className="urbanist-bold text-[24px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] text-primary dark:text-[#60A5FA] leading-[1.1]">
+                                17M+
+                            </span>
+                            <span className="text-[#576275] dark:text-white text-[11px] sm:text-[13px] md:text-[16px] lg:text-[18px] text-center">
+                                Active TagoCash users <br /> worldwide
+                            </span>
+                        </motion.div>
+                        <motion.div 
+                            className="flex flex-col items-center"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
+                            <span className="urbanist-bold text-[24px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] text-primary dark:text-[#60A5FA] leading-[1.1]">
+                                196+
+                            </span>
+                            <span className="text-[#576275] dark:text-white text-[11px] sm:text-[13px] md:text-[16px] lg:text-[18px] text-center">
+                                Borderless reach <br /> across the globe
+                            </span>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
             </motion.div>
         </div>
     )
 }
 
-export default TagoCore;
+export default Worldwide;

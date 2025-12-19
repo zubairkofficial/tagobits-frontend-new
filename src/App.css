@@ -72,7 +72,15 @@ html, body {
 @keyframes hero-center-slide {
   0% {
     opacity: 0;
-    transform: translateX(60px) scale(0.96);
+    transform: translateX(200px) scale(0.85);
+  }
+  30% {
+    opacity: 0.6;
+    transform: translateX(80px) scale(0.92);
+  }
+  60% {
+    opacity: 0.85;
+    transform: translateX(20px) scale(0.97);
   }
   100% {
     opacity: 1;
@@ -81,7 +89,7 @@ html, body {
 }
 
 .hero-center-slide {
-  animation: hero-center-slide 0.7s ease-in-out;
+  animation: hero-center-slide 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* StarBorder animations */

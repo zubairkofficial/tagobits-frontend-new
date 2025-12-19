@@ -20,119 +20,82 @@ const TagoCore = () => {
         })
     };
 
+    const features = [
+        {
+            icon: FaCubes,
+            title: "Integrated Ecosystem",
+            description: "Connects blockchain networks, compliance bodies, stablecoin issuers, and on/off-ramp providers."
+        },
+        {
+            icon: SiConvertio,
+            title: "Smart Routing",
+            description: "Routes seamlessly through crypto exchanges, FX markets, and cryptographic identity solutions."
+        },
+        {
+            icon: RiExchangeDollarFill,
+            title: "Fiat ↔ Digital ↔ Fiat",
+            description: "Enables smooth movement from fiat to digital (F2D) and back from digital to fiat (D2F)."
+        },
+        {
+            icon: IoShieldCheckmarkSharp,
+            title: "Secure by Design",
+            description: "Built for privacy, layered encryption, and lightning-fast transactions."
+        }
+    ];
+
     return (
-        <div className="max-w-[1980px] mx-auto flex flex-col justify-center w-full px-10 lg:px-10 xl:px-30 my-20 lg:my-60 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="max-w-[1980px] mx-auto flex flex-col justify-center w-full px-4 md:px-10 lg:px-30 my-10 lg:my-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+            {/* Header Section */}
             <motion.div 
-                className="flex flex-col mb-30"
+                className="flex flex-col items-center text-center mb-12 md:mb-16 lg:mb-20"
                 initial={{ opacity: 0, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
             >
-                <span className="urbanist-regular border border-gray-200 dark:border-gray-700 p-2 rounded-4xl w-fit dark:text-gray-300">TagoCore</span>
-                <h2 className="text-primary dark:text-blue-400 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-[1.1]">
-                    TagoCore: The Heart of TagoBits
+                <h2 className="urbanist-bold text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px] leading-[1.1] mb-4">
+                    <span className="text-primary">TagoCore</span>
+                    <span className="text-[#111827] dark:text-white">: The Heart of TagoBits</span>
                 </h2>
-                <span className="urbanist-regular text-gray-400 dark:text-gray-400 text-[20px]">At the core of the Tago Platform is TagoCore, a powerful orchestration engine connecting 27+ global partners.</span>
+                <p className="urbanist-regular text-[16px] sm:text-[18px] md:text-[20px] text-[#1F2933] dark:text-gray-300 max-w-3xl">
+                    At the core of the Tago Platform is TagoCore, a powerful orchestration engine connecting 27+ global partners.
+                </p>
             </motion.div>
-            <div className="flex">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
-                    <motion.div 
-                        className="flex p-3 sm:p-5 w-full h-[271px] rounded-4xl text-white hover:text-primary transition-all duration-500 ease-in-out relative overflow-hidden group" 
-                        style={{ background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)' }}
-                        custom={0}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: false, margin: "-50px" }}
-                        variants={cardVariants}
-                    >
-                        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
-                        <div className="flex flex-col max-w-[556px] relative z-10">
-                            {/* <img src={box1icon} className="w-[40px] h-[40px] text-white" alt="" /> */}
-                            <FaCubes className="w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] flex-shrink-0" />
-                            <span className=" urbanist-bold text-[24px] sm:text-[32px] pt-15">
-                                Integrated Ecosystem
-                            </span>
-                            <span className=" urbanist-regular text-[16px] sm:text-[20px]">
-                                Connects blockchain networks, compliance bodies, stablecoin issuers, and on/off-ramp providers.                            </span>
-                        </div>
-                    </motion.div>
-                    <motion.div 
-                        className="flex p-3 sm:p-5 w-full h-[271px] rounded-4xl border border-gray-100 bg-white text-primary hover:text-white transition-all duration-500 ease-in-out relative overflow-hidden group"
-                        custom={1}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: false, margin: "-50px" }}
-                        variants={cardVariants}
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
-                        <div className="flex flex-col max-w-[556px] relative z-10">
-                            {/* <img src={box2icon} className="w-[40px] h-[40px] text-white" alt="" /> */}
-                            <SiConvertio className="w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] flex-shrink-0" />
 
-                            <span className=" urbanist-bold text-[24px] sm:text-[32px] pt-15">
-                                Smart Routing
-                            </span>
-                            <span className=" urbanist-regular text-[16px] sm:text-[20px]">
-                                Routes seamlessly through crypto exchanges, FX markets, and cryptographic identity solutions.                           </span>
-                        </div>
-                    </motion.div>
-                    <motion.div 
-                        className="flex p-3 sm:p-5 w-full h-[271px] rounded-4xl border border-gray-100 bg-white text-primary hover:text-white transition-all duration-500 ease-in-out relative overflow-hidden group"
-                        custom={2}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: false, margin: "-50px" }}
-                        variants={cardVariants}
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
-                        <div className="flex flex-col max-w-[556px] relative z-10">
-                            {/* <img src={box3icon} className="w-[40px] h-[40px]" alt="" /> */}
-                            <RiExchangeDollarFill className="w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] flex-shrink-0" />
-                            <span className=" urbanist-bold text-[24px] sm:text-[32px] pt-15">
-                                Fiat ↔ Digital ↔ Fiat
-                            </span>
-                            <span className=" urbanist-regular text-[16px] sm:text-[20px]">
-                                Enables smooth movement from fiat to digital (F2D) and back from digital to fiat (D2F).              </span>
-                        </div>
-                    </motion.div>
-                    <motion.div 
-                        className="flex p-3 sm:p-5 w-full h-[271px] rounded-4xl border border-gray-100 bg-white text-primary hover:text-white transition-all duration-500 ease-in-out relative overflow-hidden group"
-                        custom={3}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: false, margin: "-50px" }}
-                        variants={cardVariants}
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
-                        <div className="flex flex-col max-w-[556px] relative z-10">
-                            {/* <img src={box4icon} className="w-[40px] h-[40px]" alt="" /> */}
-                            <IoShieldCheckmarkSharp className="w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] flex-shrink-0" />
-                            <span className=" urbanist-bold text-[24px] sm:text-[32px] pt-15">
-                                Secure by Design
-                            </span>
-                            <span className=" urbanist-regular text-[16px] sm:text-[20px]">
-                                Built for privacy, layered encryption, and lightning-fast transactions.                  </span>
-                        </div>
-                    </motion.div>
-                </div>
+            {/* 2x2 Grid of Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+                {features.map((feature, index) => {
+                    const IconComponent = feature.icon;
+                    return (
+                        <motion.div
+                            key={index}
+                            className="flex flex-col p-6 md:p-8"
+                            custom={index}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: false, margin: "-50px" }}
+                            variants={cardVariants}
+                        >
+                            {/* Blue Square Icon */}
+                            <div className="w-12 h-12 md:w-14 md:h-14 bg-primary rounded-xl flex items-center justify-center mb-4 md:mb-6">
+                                <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                            </div>
+
+                            {/* Title */}
+                            <h3 className="urbanist-bold text-[20px] sm:text-[24px] md:text-[28px] text-[#111827] dark:text-white mb-3 md:mb-4">
+                                {feature.title}
+                            </h3>
+
+                            {/* Description */}
+                            <p className="urbanist-regular text-[15px] sm:text-[16px] md:text-[17px] text-[#1F2933] dark:text-gray-300 leading-relaxed">
+                                {feature.description}
+                            </p>
+                        </motion.div>
+                    );
+                })}
             </div>
-            <motion.div 
-                className="flex justify-center pt-20"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-            >
-                <Button
-                    background="linear-gradient(to right, #2A3E9C, #1478C7)"
-                    color="#ffffff"
-                    buttontext="Explore TagoCore"
-                    hoverBackground="#ffffff"
-                    hoverColor="#235BB2"
-                    hoverBorder="2px solid #235BB2"
-                />
-            </motion.div>
+
+
         </div>
     )
 }

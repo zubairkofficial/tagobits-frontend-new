@@ -63,7 +63,7 @@ const Hero = () => {
     };
 
     return (
-        <div className='relative overflow-hidden bg-white dark:bg-transparent transition-colors duration-300 -mt-3 w-full'>
+        <div className='relative overflow-hidden bg-white dark:bg-transparent transition-colors duration-300 -mt-3 -mb-4 pb-4 md:pb-6 lg:pb-8 w-full'>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 dark:hidden overflow-hidden">
                 <div className="w-[800px] h-[800px] bg-[radial-gradient(circle,_rgba(59,130,246,0.2)_0%,_transparent_70%)] rounded-full"></div>
             </div>
@@ -76,9 +76,9 @@ const Hero = () => {
                     autoIntensity={2}
                 />
             </div>
-            <div className="relative z-10 flex flex-col items-center px-4 sm:px-6 md:px-10 pt-10 sm:pt-12 md:pt-14 w-full max-w-6xl mx-auto">
+            <div className="relative z-10 flex flex-col items-center px-4 sm:px-6 md:px-10 pt-10 sm:pt-4 md:pt-16 lg:pt-6 w-full max-w-6xl mx-auto">
                 <h1
-                    className={`text-[36px] sm:text-[44px] md:text-[52px] lg:text-[60px] xl:text-[64px] roboto-medium text-center max-w-[872px] leading-[1.1] ${
+                    className={`text-[36px] sm:text-[40px] md:text-[46px] lg:text-[38px] xl:text-[52px] roboto-medium text-center max-w-[800px] leading-[1.1] ${
                         theme === 'dark' ? 'text-white' : 'text-primary'
                     }`}
                 >
@@ -119,8 +119,7 @@ const Hero = () => {
                     />
                 </h1>
 
-
-                <div className=" w-full max-w-5xl flex items-center justify-center">
+                <div className="w-full max-w-5xl flex items-center justify-center">
                     <div className="relative w-full flex items-center justify-center">
                         {/* Left floating card (desktop only) */}
                         <div className="hidden md:block absolute left-0 lg:-left-10 top-1/2 -translate-y-1/2">
@@ -128,7 +127,7 @@ const Hero = () => {
                                 key={leftCard.id}
                                 src={leftCard.src}
                                 alt={leftCard.alt}
-                                className={`w-[110px] lg:w-[140px] xl:w-[160px] drop-shadow-xl rounded-2xl ${getSideRotationClass(leftCard.id, 'left')}`}
+                                className={`w-[90px] lg:w-[115px] xl:w-[130px] drop-shadow-xl rounded-2xl ${getSideRotationClass(leftCard.id, 'left')}`}
                             />
                         </div>
 
@@ -138,24 +137,24 @@ const Hero = () => {
                                 key={rightCard.id}
                                 src={rightCard.src}
                                 alt={rightCard.alt}
-                                className={`w-[110px] lg:w-[140px] xl:w-[160px] drop-shadow-xl rounded-2xl ${getSideRotationClass(rightCard.id, 'right')}`}
+                                className={`w-[90px] lg:w-[115px] xl:w-[130px] drop-shadow-xl rounded-2xl ${getSideRotationClass(rightCard.id, 'right')}`}
                             />
                         </div>
 
                         {/* Center phone with animated screen */}
-                        <div className="relative w-[260px] sm:w-[330px] md:w-[350px] lg:w-[360px] xl:w-[385px] mx-auto">
+                        <div className="relative w-[275px] sm:w-[250px] md:w-[300px] lg:w-[310px] xl:w-[320px] mx-auto">
                             <img
                                 src="/Iphone 14 - 2.png"
                                 alt="Tagobits mobile app"
                                 className="w-full drop-shadow-2xl"
                             />
                             {/* Screen content (uses active card) */}
-                            <div className="absolute right-[31%] top-[26%] flex items-center justify-center pointer-events-none">
+                            <div className="absolute lg:right-[32%] lg:top-[26%] right-[35.5%] top-[28%] md:right-[32%] md:top-[26%] lg:right-[32%] lg:top-[26%] flex items-center justify-center pointer-events-none overflow-visible">
                                 <img
                                     key={centerCard.id}
                                     src={centerCard.src}
                                     alt={centerCard.alt}
-                                    className={`max-w-[110px] sm:max-w-[162px] hero-center-slide ${getCenterRotationClass(centerCard.id)}`}
+                                    className={`max-w-[90px] sm:max-w-[130px] md:max-w-[120px] lg:max-w-[130px] hero-center-slide ${getCenterRotationClass(centerCard.id)}`}
                                 />
                             </div>
                         </div>

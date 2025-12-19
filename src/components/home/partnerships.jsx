@@ -5,7 +5,7 @@ import Button from "../../components/button"
 
 const Partnership = () => {
     return (
-        <div className="flex flex-col items-center my-30 lg:px-30 xl:px-40 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="flex flex-col items-center my-10 lg:my-20 lg:px-30 xl:px-40 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="flex xl:flex-row flex-col items-center justify-center gap-15 xl:gap-20">
                 <motion.div 
                     className="flex flex-col items-center gap-10 xl:w-1/2"

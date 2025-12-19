@@ -44,7 +44,7 @@ const Whytago = () => {
     };
 
     return (
-        <div className="flex flex-col items-center my-40 lg:px-30 xl:px-40 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="flex flex-col items-center mt-4 lg:mt-8 mb-20 lg:mb-30 lg:px-30 xl:px-40 bg-white dark:bg-gray-900 transition-colors duration-300 ">
             <div className="flex xl:flex-row flex-col gap-10 md:gap-30 xl:gap-50 items-stretch">
                 <motion.div 
                     className="relative flex justify-center items-start xl:w-1/2 h-fit pt-16 md:pt-20 lg:pt-24 xl:pt-[80px]"
@@ -78,7 +78,7 @@ const Whytago = () => {
                         </div>
                     </div>
                     {/* Bottom money-movement card - below phone, arrow not too low */}
-                    <div className="p-3 sm:p-4 absolute bg-white dark:bg-gray-800 shadow-2xl dark:shadow-blue-500/10 h-[165px] sm:h-[185px] md:h-[205px] w-[230px] sm:w-[250px] md:w-[260px] z-20 rounded-4xl -bottom-10 sm:-bottom-16 md:-bottom-23 left-10 sm:-left-10 md:-left-6 xl:left-0 overflow-hidden">
+                    <div className="p-3 sm:p-4 absolute bg-white dark:bg-gray-800 shadow-2xl dark:shadow-blue-500/10 h-[165px] sm:h-[185px] md:h-[205px] w-[230px] sm:w-[250px] md:w-[260px] z-20 rounded-4xl -bottom-10 sm:-bottom-16 md:-bottom-20 left-10 sm:-left-10 md:-left-6 xl:left-0 overflow-hidden">
                         <div className="flex flex-row items-end">
                             <span className="urbanist-bold text-[20px] sm:text-[24px] lg:text-[32px] dark:text-white">Money Movement</span>
                             <div className="h-fit bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-4xl text-primary dark:text-blue-400">$USD</div>
@@ -89,7 +89,7 @@ const Whytago = () => {
                     </div>
                     <div className="relative left-27 w-[90%] sm:w-[85%] max-w-[380px] sm:max-w-[420px] h-auto flex justify-center">
                         {/* Phone frame */}
-                        <div className="relative w-[220px] sm:w-[260px] md:w-[280px] lg:w-[300px] xl:w-[320px]">
+                        <div className="relative w-[220px] sm:w-[260px] md:w-[300px] lg:w-[300px] xl:w-[320px]">
                             <img
                                 src="/Iphone 14 - 2.png"
                                 alt="Tagobits mobile app"
@@ -102,7 +102,7 @@ const Whytago = () => {
                                         key={currentCard.id}
                                         src={currentCard.src}
                                         alt={currentCard.alt}
-                                        className={`max-w-[90px] sm:max-w-[130px] ${getCenterRotationClass(currentCard.id)}`}
+                                        className={`max-w-[90px] sm:max-w-[130px] md:max-w-[120px] lg:max-w-[130px] ${getCenterRotationClass(currentCard.id)}`}
                                         initial={{ opacity: 0, x: 40, scale: 0.98 }}
                                         animate={{ opacity: 1, x: 0, scale: 1 }}
                                         exit={{ opacity: 0, x: -40, scale: 0.98 }}
@@ -131,13 +131,14 @@ const Whytago = () => {
                             Why Tago
                         </motion.span>
                         <motion.h2 
-                            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left text-primary dark:text-blue-400 leading-[1.1]"
+                            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left leading-[1.1] font-medium"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            The Tago Platform Advantage
+                            <span className="text-[#111827] dark:text-white">The Tago Platform </span>
+                            <span className="text-primary">Advantage</span>
                         </motion.h2>
                     </div>
                     <motion.span 

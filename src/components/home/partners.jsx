@@ -7,7 +7,7 @@ const Partners = () => {
     const sectionTitle = getFieldValue("sectionTitle") || "Great Partnership Builds Great Services for Users.";
 
     return (
-        <div className="w-full justify-center items-center flex flex-col mb-5 lg:px-8 mx-auto min-h-[200px] py-[20px] pt-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="w-full justify-center items-center flex flex-col mb-0 lg:px-8 mx-auto min-h-[200px] py-10 pt-10 bg-white dark:bg-gray-900 transition-colors duration-300">
             <StarBorder
                 color="#0ac8ff"
                 thickness={3}
