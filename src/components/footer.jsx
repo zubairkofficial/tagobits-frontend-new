@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import footerLogo from '../assets/footerlogo.svg';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaTelegram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
@@ -10,7 +11,14 @@ import { usetagocashcontent } from '../hooks/usetagocashcontent';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const location = useLocation();
   const { getFieldValue, loading } = usetagocashcontent('footer');
+  
+  // Check if current page is blogs, contact us, or about us
+  const isBlogsPage = location.pathname.startsWith('/blogs');
+  const isContactPage = location.pathname === '/contactus';
+  const isAboutPage = location.pathname === '/about';
+  const needsMarginTop = isBlogsPage || isContactPage || isAboutPage;
 
   if (loading) {
     return <div>Loading...</div>;
@@ -37,7 +45,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b to-footer from-footer-primary text-white py-6 px-4 text-center w-full lg:px-20 -mt-20 relative z-50">
+    <footer className={`bg-gradient-to-b to-footer from-footer-primary text-white py-6 px-4 text-center w-full lg:px-20 ${needsMarginTop ? 'mt-0' : 'mt-0 lg:-mt-20'} relative z-50`}>
       <h2 className="max-w-2xl mx-auto mb-4 tracking-widest text-base sm:text-lg" style={{ wordSpacing: '4px' }}>
         {getFieldValue('sectionTitle')}
       </h2>

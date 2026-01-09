@@ -110,10 +110,10 @@ const Hero = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false, amount: 0.1 }}
                                 transition={{ duration: 0.7, delay: 0.8 }}
-                                className={`${isMobile ? 'mt-8 scale-[1.15]' : 'mt-2'} mb-0 flex flex-col items-center w-full ${isMobile ? 'px-0' : 'px-2'}`}
+                                className={`${isMobile ? 'mt-8 scale-[1.15]' : 'mt-2'} mb-0 flex flex-col items-center w-[90%] ${isMobile ? 'px-0' : 'px-2'}`}
                             >
                                 <div
-                                    className="w-full rounded-2xl shadow-xl max-w-full sm:max-w-[850px] md:max-w-[1050px] lg:max-w-[800px] xl:max-w-[950px] overflow-hidden"
+                                    className="w-full rounded-2xl shadow-xl overflow-hidden"
                                     style={{
                                         aspectRatio: '16/9',
                                         border: '1px solid rgba(27, 103, 186, 0.2)',

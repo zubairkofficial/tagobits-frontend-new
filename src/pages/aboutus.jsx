@@ -3,7 +3,7 @@ import { AboutUsHero, Mission, OurStory, Values, Impact, AboutInvestors } from '
 
 const AboutUs = () => {
     return(
-        <div className='min-h-[calc(100vh-470px)] bg-white dark:bg-gray-900 transition-colors duration-300'>
+        <div className='min-h-[calc(100vh-470px)] bg-[#FBFDFF] pb-24 md:pb-32'>
             <HomeComponentLoader component={AboutUsHero} />
             <HomeComponentLoader component={Mission} />
             <HomeComponentLoader component={Values} />

@@ -91,7 +91,7 @@ const Blogs = () => {
             </div>
 
             {/* Blogs Grid */}
-            <div className="max-w-[1900px] mx-auto px-4 lg:px-20 py-16">
+            <div className="max-w-[1900px] mx-auto px-4 lg:px-20 py-16 pb-24 md:pb-32">
                 {currentBlogs.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
                         {currentBlogs.map((blog, index) => (

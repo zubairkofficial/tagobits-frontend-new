@@ -33,9 +33,9 @@ const Navbar = ({ isInHero = false }) => {
                 <Link to="/">
                     <div className="flex items-center">
                         <img
-                            src="/logo-DNXW06HV.svg"
-                            alt="TagoCash Logo"
-                            className="w-24 sm:w-32 mt-1 lg:mt-0 lg:w-full max-w-[180px]"
+                            src="/tagobitslogo.png"
+                            alt="Tagobits Logo"
+                            className="w-24 sm:w-32 md:w-36 lg:w-40 xl:w-44 mt-1 lg:mt-0 max-w-[180px] h-auto object-contain"
                         />
                     </div>
                 </Link>

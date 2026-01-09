@@ -1,12 +1,16 @@
 import Button from "../button";
 const AboutInvestors = () => {
     return (
-        <div className="flex flex-col items-center justify-center gap-15 lg:gap-20 px-10 bg-gradient-to-br from-[#2A3E9C] to-[#1478C7] py-10 my-50 mx-20 rounded-[60px]">
-            <div className="flex flex-col items-center justify-center">
-                <span className="urbanist-regular border border-gray-50/10 p-2 rounded-4xl w-fit text-white">Global Impact</span>
-                <span className="urbanist-bold text-white text-[64px] text-center mx-100">Ready to Shape the Future of Borderless Payments?</span>
-                <span className="urbanist-regular text-white/60 text-[24px] text-center mx-100">Join millions of users, businesses, and partners already moving money with TagoCash</span>
-                <div className="flex flex-row gap-10 py-10">
+        <div className="flex flex-col items-center justify-center gap-8 sm:gap-12 md:gap-15 lg:gap-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-20 bg-gradient-to-br from-[#2A3E9C] to-[#1478C7] py-8 sm:py-10 md:py-12 pb-16 sm:pb-20 md:pb-24 lg:pb-32 my-8 sm:my-12 md:my-16 lg:my-20 xl:my-24 mb-0 mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-20 rounded-2xl sm:rounded-3xl md:rounded-[40px] lg:rounded-[50px] xl:rounded-[60px]">
+            <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 md:gap-10 w-full max-w-5xl mx-auto">
+                <span className="urbanist-regular border border-gray-50/10 p-2 rounded-4xl w-fit text-white text-xs sm:text-sm">Global Impact</span>
+                <span className="urbanist-bold text-white text-[24px] xs:text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] xl:text-[64px] text-center leading-[1.2] px-2">
+                    Ready to Shape the Future of Borderless Payments?
+                </span>
+                <span className="urbanist-regular text-white/60 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] text-center leading-relaxed px-2">
+                    Join millions of users, businesses, and partners already moving money with TagoCash
+                </span>
+                <div className="flex flex-row gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10">
                     <Button
                         background="#ffffff"
                         color="#235BB2"
@@ -14,15 +18,6 @@ const AboutInvestors = () => {
                         border="2px solid #ffffff"
                         hoverBackground="linear-gradient(to right, #2A3E9C, #1478C7)"
                         hoverColor="#ffffff"
-                        hoverBorder="2px solid #ffffff"
-                    />
-                    <Button
-                        background=""
-                        color="#ffffff"
-                        buttontext="Contact Us"
-                        border="2px solid #ffffff"
-                        hoverBackground="#ffffff"
-                        hoverColor="#235BB2"
                         hoverBorder="2px solid #ffffff"
                     />
                 </div>
