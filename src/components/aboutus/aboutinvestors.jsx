@@ -5,7 +5,7 @@ const AboutInvestors = () => {
             <div className="flex flex-col items-center justify-center">
                 <span className="urbanist-regular border border-gray-50/10 p-2 rounded-4xl w-fit text-white">Global Impact</span>
                 <span className="urbanist-bold text-white text-[64px] text-center mx-100">Ready to Shape the Future of Borderless Payments?</span>
-                <span className="urbanist-regular text-white/60 text-[24px] text-center mx-100">Join millions of users, businesses, and partners already moving money with TagoBits</span>
+                <span className="urbanist-regular text-white/60 text-[24px] text-center mx-100">Join millions of users, businesses, and partners already moving money with TagoCash</span>
                 <div className="flex flex-row gap-10 py-10">
                     <Button
                         background="#ffffff"
@@ -25,7 +25,7 @@ const AboutInvestors = () => {
                         hoverColor="#235BB2"
                         hoverBorder="2px solid #ffffff"
                     />
-                </div>    
+                </div>
             </div>
         </div>
     )

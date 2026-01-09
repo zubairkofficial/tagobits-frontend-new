@@ -19,18 +19,18 @@ const Investors = () => {
     return (
         <div className="flex flex-col items-center w-full px-5 lg:px-30 xl:px-30 bg-white dark:bg-[#111827] pt-0 pb-10 md:pb-12 lg:pb-16 transition-colors duration-300">
             {/* Heading */}
-            <motion.h2 
+            <motion.h2
                 className="urbanist-bold text-center text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] text-[#111827] dark:text-white leading-[1.2] mb-6 md:mb-8 max-w-4xl"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, margin: "-100px" }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-                Tagobits and its <span className="text-primary dark:text-[#60A5FA]">affiliated entities</span> are still raising funds to expand
+                TagoCash and its <span className="text-primary dark:text-[#60A5FA]">affiliated entities</span> are still raising funds to expand
             </motion.h2>
 
             {/* Six Circles with Logos */}
-            <motion.div 
+            <motion.div
                 className="grid grid-cols-3 md:flex md:flex-wrap md:justify-center items-center gap-4 md:gap-6 lg:gap-8 mb-6 md:mb-8 max-w-md md:max-w-none mx-auto"
             >
                 {logos.map((logo, index) => (
@@ -40,8 +40,8 @@ const Investors = () => {
                         initial={{ opacity: 0, x: -100, y: 60 }}
                         whileInView={{ opacity: 1, x: 0, y: 0 }}
                         viewport={{ once: false, margin: "-50px" }}
-                        transition={{ 
-                            duration: 0.6, 
+                        transition={{
+                            duration: 0.6,
                             delay: 0.2 + index * 0.12,
                             ease: "easeOut"
                         }}
@@ -56,7 +56,7 @@ const Investors = () => {
             </motion.div>
 
             {/* Sub-heading */}
-            <motion.p 
+            <motion.p
                 className="urbanist-regular text-center text-[16px] sm:text-[18px] md:text-[20px] text-[#111827] dark:text-white mb-6 md:mb-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -73,10 +73,10 @@ const Investors = () => {
                 viewport={{ once: false, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.5 }}
             >
-                <Button 
-                    background="linear-gradient(to right, #2A3E9C, #1478C7)" 
-                    color="#ffffff" 
-                    buttontext="Contact Us" 
+                <Button
+                    background="linear-gradient(to right, #2A3E9C, #1478C7)"
+                    color="#ffffff"
+                    buttontext="Contact Us"
                     to="/contactus"
                     hoverBackground="white"
                     hoverColor="#235BB2"

@@ -19,7 +19,7 @@ const ContactHero = () => {
 
     return (
         <div className="flex flex-col items-center justify-center gap-15 lg:gap-20 px-10 bg-gradient-to-br from-[#2A3E9C] to-[#1478C7] min-h-[700px] py-30">
-            <motion.div 
+            <motion.div
                 className="flex flex-col items-center justify-center gap-5"
                 initial={{ opacity: 0, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ const ContactHero = () => {
                 </div>
                 <div className="flex flex-col justify-center xl:items-start">
                     <span className="text-[16px]  w-full sm:text-[18px] md:text-[24px] urbanist-regular text-center max-w-[780px] text-gray-50/60">
-                        The TagoBits platform enables payment settlement in seconds and at one tenth of the cost of traditional fiat payments.
+                        The TagoCash platform enables payment settlement in seconds and at one tenth of the cost of traditional fiat payments.
                     </span>
                 </div>
                 <div className="flex flex-row gap-10">
@@ -44,7 +44,7 @@ const ContactHero = () => {
             </motion.div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-x-20 xl:gap-x-20 max-w-[1280px] mx-auto">
                 {/* Email Card */}
-                <motion.div 
+                <motion.div
                     className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl min-h-[270px]"
                     custom={0}
                     initial="hidden"
@@ -58,8 +58,8 @@ const ContactHero = () => {
                         </svg>
                     </div>
                     <div className="flex flex-col">
-                    <span className="urbanist-regular text-[18px] text-white mb-3 leading-none">Email</span>
-                    <span className="urbanist-regular text-[16px] text-white leading-none">s.t.sharkey@outlook.com</span>
+                        <span className="urbanist-regular text-[18px] text-white mb-3 leading-none">Email</span>
+                        <span className="urbanist-regular text-[16px] text-white leading-none">s.t.sharkey@outlook.com</span>
                     </div>
                     <div className="flex flex-row items-center gap-4">
                         <Button
@@ -75,7 +75,7 @@ const ContactHero = () => {
                         <span className="urbanist-regular text-[16px] text-white leading-none">*available 24 hrs</span>
                     </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                     className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl"
                     custom={1}
                     initial="hidden"
@@ -89,8 +89,8 @@ const ContactHero = () => {
                         </svg>
                     </div>
                     <div className="flex flex-col">
-                    <span className="urbanist-regular text-[18px] text-white mb-3 leading-none">Phone</span>
-                    <span className="urbanist-regular text-[16px] text-white leading-none">+91 8932-1151-22</span>
+                        <span className="urbanist-regular text-[18px] text-white mb-3 leading-none">Phone</span>
+                        <span className="urbanist-regular text-[16px] text-white leading-none">+91 8932-1151-22</span>
                     </div>
                     <div className="flex flex-row items-center gap-4">
                         <Button
@@ -106,7 +106,7 @@ const ContactHero = () => {
                         <span className="urbanist-regular text-[16px] text-white leading-none">*available 24 hrs</span>
                     </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                     className="flex flex-col justify-between border border-gray-50/10 p-7 rounded-4xl"
                     custom={2}
                     initial="hidden"
@@ -120,8 +120,8 @@ const ContactHero = () => {
                         </svg>
                     </div>
                     <div className="flex flex-col">
-                    <span className="urbanist-regular text-[18px] text-white mb-3 leading-none">Address</span>
-                    <span className="urbanist-regular text-[16px] text-white leading-none">123 Maplestreet, SpringField</span>
+                        <span className="urbanist-regular text-[18px] text-white mb-3 leading-none">Address</span>
+                        <span className="urbanist-regular text-[16px] text-white leading-none">123 Maplestreet, SpringField</span>
                     </div>
                     <div className="flex flex-row items-center gap-4">
                         <Button

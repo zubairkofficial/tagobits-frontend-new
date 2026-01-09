@@ -37,11 +37,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b to-footer from-footer-primary text-white py-10 px-4 text-center w-full lg:px-20 mt-15">
-      <h2 className="max-w-2xl mx-auto mb-6 tracking-widest text-base sm:text-lg" style={{ wordSpacing: '4px' }}>
+    <footer className="bg-gradient-to-b to-footer from-footer-primary text-white py-6 px-4 text-center w-full lg:px-20 -mt-20 relative z-50">
+      <h2 className="max-w-2xl mx-auto mb-4 tracking-widest text-base sm:text-lg" style={{ wordSpacing: '4px' }}>
         {getFieldValue('sectionTitle')}
       </h2>
-      <div className="flex flex-wrap justify-center gap-3 mb-6 w-full">
+      <div className="flex flex-wrap justify-center gap-3 mb-4 w-full">
         <a href="https://staging01.tagocash.com/" className="text-white hover:text-primary underline text-xs sm:text-sm">Home</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
         <a href="https://staging01.tagocash.com/privacy" className="text-white hover:text-primary underline text-xs sm:text-sm">Privacy</a>
@@ -62,7 +62,7 @@ const Footer = () => {
       </div>
       <div className='flex flex-col lg:flex-row items-center lg:items-start'>
         <div className='w-2/3'>
-          <div className="mb-6 flex flex-col sm:flex-row justify-center items-center lg:justify-center gap-1 sm:gap-3">
+          <div className="mb-4 flex flex-col sm:flex-row justify-center items-center lg:justify-center gap-1 sm:gap-3">
             <input
               type="text"
               className="py-2 px-4 bg-[rgba(255,255,255,0.05)] rounded-md text-gray-300 placeholder-gray-300 focus:outline-none backdrop-blur-md bg-opacity-10 xs:56 sm:w-96 lg:w-[380px] xl:w-[450px] text-xs sm:text-sm"
@@ -74,22 +74,22 @@ const Footer = () => {
               Subscribe Us
             </button>
           </div>
-          <p className="text-xs font-extralight text-gray-100 text-center lg:text-left max-w-4xl mx-auto mb-6 sm:text-sm lg:max-w-5xl">
+          <p className="text-xs font-extralight text-gray-100 text-center lg:text-left max-w-4xl mx-auto mb-4 sm:text-sm lg:max-w-5xl">
             {getFieldValue('sectionDescription2')}
           </p>
         </div>
         <div className='lg:w-1/2 px-5 lg:px-10'>
-          <p className='text-xs mb-3 text-center lg:text-start'>
-            {getFieldValue('tagobitstext')}
+          <p className='text-xs mb-2 text-center lg:text-start leading-relaxed text-gray-100'>
+            TagoBits, Inc. is a fintech company at the frontier of digital and fiat currency. TagoCash is a global community project that provides financial equanimity by preserving money's value while making it efficiently portable and usable worldwide.
           </p>
         </div>
       </div>
-      <div className="mt-10 flex flex-col md:flex-row items-center justify-between px-6 lg:px-10 sm:px-4">
+      <div className="mt-6 flex flex-col md:flex-row items-center justify-between px-6 lg:px-10 sm:px-4">
         <div className="flex items-center gap-6 mb-6 md:mb-0">
-          <img src={footerLogo} alt="TagoBits Logo" className="w-32 sm:w-28" />
+          <img src={footerLogo} alt="TagoCash Logo" className="w-32 sm:w-28" />
           <div className='flex flex-col items-start'>
             <span className="text-start text-xs font-extralight">
-              TagoCash &copy; 2023-{new Date().getFullYear()}. TagoBits, Inc.
+              TagoCash &copy; 2023-{new Date().getFullYear()}. TagoCash, Inc.
             </span>
             <span className="text-start text-xs font-extralight">
               All rights reserved

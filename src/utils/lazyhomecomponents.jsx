@@ -2,6 +2,16 @@ import React from 'react';
 import { lazy } from 'react';
 
 export const Hero = lazy(() => import('../components/home/hero'));
+export const MoneySection = lazy(() => import('../components/home/MoneySection'));
+export const TagoBridge = lazy(() => import('../components/home/TagoBridge'));
+export const VideoSection = lazy(() => import('../components/home/VideoSection'));
+export const NewFeatures = lazy(() => import('../components/home/NewFeatures'));
+export const WhyUse = lazy(() => import('../components/home/WhyUse'));
+export const GetMore = lazy(() => import('../components/home/GetMore'));
+export const MobileApp = lazy(() => import('../components/home/MobileApp'));
+export const Jurisdictions = lazy(() => import('../components/home/Jurisdictions'));
+export const HomeBlogs = lazy(() => import('../components/home/HomeBlogs'));
+export const NewsMedia = lazy(() => import('../components/home/NewsMedia'));
 export const Whytago = lazy(() => import('../components/home/whytago'));
 export const Security = lazy(() => import('../components/home/security'));
 export const TagoCore = lazy(() => import('../components/home/tagocore'));

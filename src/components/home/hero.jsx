@@ -1,168 +1,146 @@
-import { useEffect, useState } from 'react';
-
-// components
-import Button from '../button';
-import LiquidEther from '../LiquidEther';
+import React from 'react';
+import { motion } from 'framer-motion';
 import TextType from '../TextType';
-import { useTheme } from '../../context/ThemeContext';
-
-const HERO_CARDS = [
-    {
-        id: 'qr',
-        src: '/qr code.png',
-        alt: 'QR code payment',
-    },
-    {
-        id: 'secure',
-        src: '/secure payment.png',
-        alt: 'Secure payment confirmation',
-    },
-    {
-        id: 'card',
-        src: '/card.png',
-        alt: 'Tagobits virtual card',
-    },
-];
+import Navbar from '../navbar';
 
 const Hero = () => {
-    const { theme } = useTheme();
-    const [activeIndex, setActiveIndex] = useState(0);
+    // const { getFieldValue } = useHomeContent('money'); // Structure kept but using static data as requested
+    const [isMobile, setIsMobile] = React.useState(false);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % HERO_CARDS.length);
-        }, 2500);
-
-        return () => clearInterval(interval);
+    // Detect mobile view
+    React.useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768); // standard md breakpoint
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
-    const centerCard = HERO_CARDS[activeIndex];
-    const rightCard = HERO_CARDS[(activeIndex + 1) % HERO_CARDS.length];
-    const leftCard = HERO_CARDS[(activeIndex + 2) % HERO_CARDS.length];
+    // Static data hardcoded as requested
+    const moneyTitle = 'MONEY';
+    const whatIsIt = 'What is it?';
+    const videoUrl = 'https://fast.wistia.com/embed/medias/1jkulxved5/';
 
-    // Rotation helpers so side cards stay tilted,
-    // but images inside the phone stay perfectly straight.
-    const getSideRotationClass = (id, position) => {
-        if (id === 'card') {
-            // Card strongly tilted on both sides (side positions only)
-            return position === 'left' ? 'rotate-[-18deg]' : 'rotate-[18deg]';
-        }
-        if (id === 'secure') {
-            // Secure payment slightly tilted
-            return position === 'left' ? 'rotate-[-14deg]' : 'rotate-[10deg]';
-        }
-        // QR code very light tilt
-        return position === 'left' ? 'rotate-[-8deg]' : 'rotate-[6deg]';
-    };
+    const getWistiaVideoId = (url) => {
+        if (!url) return '';
+        const trimmed = url.trim();
+        // Check for 10-character alphanumeric ID or 36-character UUID patterns common in Wistia
+        if (/^[a-z0-9]{10}$/i.test(trimmed)) return trimmed;
 
-    const getCenterRotationClass = (id) => {
-        // Counter‑rotate the pre‑tilted assets so they look straight INSIDE the phone
-        if (id === 'card') return 'rotate-[9deg]';
-        if (id === 'secure') return 'rotate-[-9deg]';
+        const wistiaMatch = trimmed.match(/wistia\.com\/(?:embed\/)?medias\/([a-z0-9]+)(?:\/swatch)?\/?/i);
+        if (wistiaMatch) return wistiaMatch[1];
+
+        const directIdMatch = trimmed.match(/medias\/([a-zA-Z0-9]+)/);
+        if (directIdMatch) return directIdMatch[1];
+
+        const embedMatch = trimmed.match(/wistia\.com\/embed\/(?:medias\/)?([^/?]+?)(?:\.js)?\/?$/);
+        if (embedMatch) return embedMatch[1];
+
         return '';
     };
 
+    const videoId = getWistiaVideoId(videoUrl);
+
     return (
-        <div className='relative overflow-hidden bg-white dark:bg-transparent transition-colors duration-300 -mt-3 -mb-4 pb-4 md:pb-6 lg:pb-8 w-full'>
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 dark:hidden overflow-hidden">
-                <div className="w-[800px] h-[800px] bg-[radial-gradient(circle,_rgba(59,130,246,0.2)_0%,_transparent_70%)] rounded-full"></div>
+        <section
+            className="relative w-full overflow-visible"
+            style={{
+                backgroundColor: '#EFF1F2',
+                minHeight: isMobile ? '100vh' : 'auto',
+                display: isMobile ? 'flex' : 'block',
+                flexDirection: 'column',
+                justifyContent: isMobile ? 'center' : 'flex-start',
+                alignItems: 'center'
+            }}
+        >
+            <div className="w-full hero-section-wrapper">
+                <Navbar isInHero={true} />
             </div>
-            <div className="absolute inset-0 hidden dark:block z-0 overflow-hidden">
-                <LiquidEther
-                    className="w-full h-full"
-                    colors={['#218DCD', '#2A63AA', '#2E388E']}
-                    autoDemo={true}
-                    autoSpeed={0.35}
-                    autoIntensity={2}
-                />
-            </div>
-            <div className="relative z-10 flex flex-col items-center px-4 sm:px-6 md:px-10 pt-10 sm:pt-4 md:pt-16 lg:pt-6 w-full max-w-6xl mx-auto">
-                <h1
-                    className={`text-[36px] sm:text-[40px] md:text-[46px] lg:text-[38px] xl:text-[52px] roboto-medium text-center max-w-[800px] leading-[1.1] ${
-                        theme === 'dark' ? 'text-white' : 'text-primary'
-                    }`}
-                >
-                    The Digital Money for{' '}
-                    <TextType
-                        as="span"
-                        text={[
-                            'Global payments',
-                            'Borderless payments',
-                            'Global transactions',
-                        ]}
-                        typingSpeed={55}
-                        deletingSpeed={35}
-                        pauseDuration={1500}
-                        showCursor={true}
-                        cursorClassName={theme === 'dark' ? 'text-white' : 'text-primary'}
-                        className="inline-block whitespace-nowrap align-bottom"
-                        style={{ minWidth: '22ch', display: 'inline-block' }}
-                        renderContent={(currentText, { fullText }) => {
-                            const spaceIndex = fullText.indexOf(' ');
-                            const firstWordColor = theme === 'dark' ? 'text-[#60A5FA]' : 'text-black';
-                            const restColor = theme === 'dark' ? 'text-white' : 'text-primary';
-
-                            if (spaceIndex === -1) {
-                                return <span className={firstWordColor}>{currentText}</span>;
-                            }
-                            const firstWordEnd = spaceIndex;
-                            const firstWordLength = Math.min(currentText.length, firstWordEnd);
-                            const firstPart = currentText.slice(0, firstWordLength);
-                            const restPart = currentText.slice(firstWordLength);
-                            return (
-                                <>
-                                    <span className={firstWordColor}>{firstPart}</span>
-                                    <span className={restColor}>{restPart}</span>
-                                </>
-                            );
-                        }}
-                    />
-                </h1>
-
-                <div className="w-full max-w-5xl flex items-center justify-center">
-                    <div className="relative w-full flex items-center justify-center">
-                        {/* Left floating card (desktop only) */}
-                        <div className="hidden md:block absolute left-0 lg:-left-10 top-1/2 -translate-y-1/2">
-                            <img
-                                key={leftCard.id}
-                                src={leftCard.src}
-                                alt={leftCard.alt}
-                                className={`w-[90px] lg:w-[115px] xl:w-[130px] drop-shadow-xl rounded-2xl ${getSideRotationClass(leftCard.id, 'left')}`}
-                            />
-                        </div>
-
-                        {/* Right floating card (desktop only) */}
-                        <div className="hidden md:block absolute right-0 lg:-right-10 top-1/2 -translate-y-1/2">
-                            <img
-                                key={rightCard.id}
-                                src={rightCard.src}
-                                alt={rightCard.alt}
-                                className={`w-[90px] lg:w-[115px] xl:w-[130px] drop-shadow-xl rounded-2xl ${getSideRotationClass(rightCard.id, 'right')}`}
-                            />
-                        </div>
-
-                        {/* Center phone with animated screen */}
-                        <div className="relative w-[275px] sm:w-[250px] md:w-[300px] lg:w-[310px] xl:w-[320px] mx-auto">
-                            <img
-                                src="/Iphone 14 - 2.png"
-                                alt="Tagobits mobile app"
-                                className="w-full drop-shadow-2xl"
-                            />
-                            {/* Screen content (uses active card) */}
-                            <div className="absolute lg:right-[32%] lg:top-[26%] right-[35.5%] top-[28%] md:right-[32%] md:top-[26%] lg:right-[32%] lg:top-[26%] flex items-center justify-center pointer-events-none overflow-visible">
-                                <img
-                                    key={centerCard.id}
-                                    src={centerCard.src}
-                                    alt={centerCard.alt}
-                                    className={`max-w-[90px] sm:max-w-[130px] md:max-w-[120px] lg:max-w-[130px] hero-center-slide ${getCenterRotationClass(centerCard.id)}`}
-                                />
-                            </div>
-                        </div>
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 pt-10 md:pt-8 lg:pt-20 pb-4 md:pb-6 lg:pb-10 z-10">
+                {/* Main Content - Centered */}
+                <div className="flex flex-col w-full max-w-6xl relative z-10 items-center text-center">
+                    {/* 1. Header Animation - MONEY */}
+                    <div className={`flex flex-col items-center justify-center ${isMobile ? 'mb-36' : 'mb-12 sm:mb-16 md:mb-24 lg:mb-56 xl:mb-64'}`}>
+                        {/* Line 1: MONEY... - Slides up from bottom */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-transparent bg-clip-text leading-[1.1] pb-2"
+                            style={{
+                                fontFamily: '"Aeonik Black", "Aeonik Black Placeholder", sans-serif',
+                                letterSpacing: '-0.02em',
+                                backgroundImage: 'repeating-linear-gradient(135deg, rgba(255,255,255,0.25) 0, rgba(255,255,255,0.25) 3px, transparent 3px, transparent 12px), linear-gradient(90deg, #2549A4, #0C8AD4, #186CBE)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text',
+                            }}
+                        >
+                            {moneyTitle.replace(/[.…]+$/, '')}...
+                        </motion.h1>
                     </div>
+
+                    {/* 2. What is it? + Video Section - Grouped together */}
+                    <div className="flex flex-col items-center w-full">
+                        {/* Line 2: What is it? */}
+                        <div className={`min-h-[40px] sm:min-h-[60px] ${isMobile ? 'mb-2 mt-6' : 'mb-4 md:mb-6'}`}>
+                            <TextType
+                                text={[`${whatIsIt.replace(/[?.… ]+$/, '')}...?`]}
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-black leading-[1.1] pb-2"
+                                cursorClassName="text-black font-normal"
+                                style={{
+                                    fontFamily: '"Aeonik Black", "Aeonik Black Placeholder", sans-serif',
+                                    letterSpacing: '-0.02em',
+                                    paddingTop: isMobile ? '10px' : '0'
+                                }}
+                                typingSpeed={80}
+                                initialDelay={800}
+                                showCursor={true}
+                                loop={false}
+                                startOnVisible={true}
+                            />
+                        </div>
+
+                        {/* 3. Video - Slide UP - Starts at 1.5s */}
+                        {videoId && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.1 }}
+                                transition={{ duration: 0.7, delay: 0.8 }}
+                                className={`${isMobile ? 'mt-8 scale-[1.15]' : 'mt-2'} mb-0 flex flex-col items-center w-full ${isMobile ? 'px-0' : 'px-2'}`}
+                            >
+                                <div
+                                    className="w-full rounded-2xl shadow-xl max-w-full sm:max-w-[850px] md:max-w-[1050px] lg:max-w-[800px] xl:max-w-[950px] overflow-hidden"
+                                    style={{
+                                        aspectRatio: '16/9',
+                                        border: '1px solid rgba(27, 103, 186, 0.2)',
+                                        backgroundColor: 'black'
+                                    }}
+                                >
+                                    <iframe
+                                        src={`https://fast.wistia.net/embed/iframe/${videoId}?videoFoam=true&autoplay=true&muted=true&loop=true&endVideoBehavior=loop`}
+                                        title="Wistia Video Player"
+                                        allow="autoplay; fullscreen"
+                                        frameBorder="0"
+                                        scrolling="no"
+                                        className="w-full h-full"
+                                        allowFullScreen
+                                    ></iframe>
+                                </div>
+                            </motion.div>
+                        )}
+
+                    </div>
+
+                    {/* 4. Description Text - Typing Animation - Starts at 1.5s */}
+
                 </div>
             </div>
-        </div>
-    )
-}
+        </section>
+    );
+};
 
 export default Hero;

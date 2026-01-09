@@ -1,29 +1,45 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import tagocashaxiosinstance, { API_BASE_URL } from '../../utils/tagocashaxiosinstance';
 
 // Wrapper for individual logos to give them the glassy container style and hover effects
-const LogoWrapper = ({ children, className = "", isHighlighted = false, isHovered = false, title = null }) => {
+const LogoWrapper = ({ children, className = "", isHighlighted = false, isHovered = false, title = null, delay = 0 }) => {
     const baseClasses = "backdrop-blur-xl rounded-2xl flex items-center justify-center transition-all duration-300 relative";
-    
+
     const highlightedClasses = isHighlighted
-        ? "dark:bg-gray-700/50 bg-gray-100/80 border border-blue-400/50 dark:shadow-blue-500/20 shadow-blue-400/30 shadow-2xl"
-        : "dark:bg-white/5 bg-white/60 border border-gray-200/50 dark:border-white/10";
-    
-    const hoverClasses = isHovered
-        ? "dark:bg-gray-600/50 bg-gray-200/80 border-blue-400/60 scale-110 dark:shadow-blue-400/30 shadow-blue-400/40 shadow-2xl z-[60]"
-        : "dark:hover:bg-white/10 hover:bg-gray-100/80 dark:hover:border-white/20 hover:border-gray-300/60 z-10";
-    
+        ? "bg-gray-100/80 border border-blue-400/50 shadow-blue-400/30 shadow-2xl"
+        : "bg-white/60 border border-gray-200/50";
+
     return (
-        <div 
-            className={`${baseClasses} ${highlightedClasses} ${hoverClasses} ${className}`}
+        <motion.div
+            className={`${baseClasses} ${highlightedClasses} ${className}`}
+            animate={{
+                y: [0, -10, 0],
+                x: [0, 5, 0]
+            }}
+            transition={{
+                duration: 4 + Math.random() * 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: delay
+            }}
+            whileHover={{
+                scale: 1.25,
+                zIndex: 100,
+                transition: { duration: 0.3 }
+            }}
         >
             {children}
             {isHovered && title && title.trim() !== '' && title !== 'undefined' && (
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-gray-800 dark:bg-gray-700 text-white text-sm px-3 py-1 rounded-md shadow-md">
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded-md shadow-md whitespace-nowrap z-[110]"
+                >
                     {title}
-                </div>
+                </motion.div>
             )}
-        </div>
+        </motion.div>
     );
 };
 
@@ -32,16 +48,16 @@ const LogoGrid = ({ logos }) => {
     const displayedLogos = logos;
     const centerLogo = displayedLogos.find(logo => logo.is_center) || null;
     const outerLogos = displayedLogos.filter(logo => !logo.is_center);
-    
-    // Constants for layout calculation
-    const radius = 300;
-    const centralIconRadius = 48;
-    const outerIconRadius = 60;
-    const svgSize = 500;
+
+    // Constants for layout calculation (Increased for bigger orb)
+    const radius = 380;
+    const centralIconRadius = 60;
+    const outerIconRadius = 80;
+    const svgSize = 900;
     const svgCenter = svgSize / 2;
 
     return (
-        <div className="relative w-[500px] h-[500px] scale-[0.55] lg:scale-100 lg:my-40">
+        <div className="relative w-[900px] h-[900px] scale-[0.4] lg:scale-100 lg:mt-32 lg:mb-10">
             {/* SVG container for all connecting lines */}
             <svg
                 width={svgSize}
@@ -65,9 +81,9 @@ const LogoGrid = ({ logos }) => {
                                 y2={endY}
                                 stroke={hoveredId === logo.id ? '#3B82F6' : '#6B7280'}
                                 strokeWidth="2"
-                                className="transition-all duration-300 dark:stroke-gray-500"
+                                className="transition-all duration-300"
                                 style={{
-                                    opacity: hoveredId === logo.id ? 1 : 0.3,
+                                    opacity: hoveredId === logo.id ? 1 : 0.25,
                                     zIndex: hoveredId === logo.id ? 15 : 0
                                 }}
                             />
@@ -75,7 +91,7 @@ const LogoGrid = ({ logos }) => {
                     })}
                 </g>
             </svg>
-            
+
             {/* The main container that acts as the center for the circle */}
             <div className="absolute top-1/2 left-1/2">
                 {/* Center Logo */}
@@ -85,16 +101,16 @@ const LogoGrid = ({ logos }) => {
                             <img
                                 src={`${API_BASE_URL}/fetch-partnerlogo/${centerLogo.image_path}`}
                                 alt={centerLogo.title || "Center Logo"}
-                                className="w-full h-full object-contain p-2"
+                                className="w-full h-full object-contain p-4"
                             />
                         ) : (
-                            <div className="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+                            <div className="w-full h-full flex items-center justify-center text-gray-500">
                                 No Logo
                             </div>
                         )}
                     </LogoWrapper>
                 </div>
-                
+
                 {/* Outer logos */}
                 {outerLogos.map((logo, i) => {
                     const angleInDegrees = -150 + i * (360 / outerLogos.length);
@@ -114,9 +130,10 @@ const LogoGrid = ({ logos }) => {
                         >
                             <div className="-translate-x-1/2 -translate-y-1/2">
                                 <LogoWrapper
-                                    className="w-30 h-30"
+                                    className="w-28 h-28"
                                     isHovered={hoveredId === logo.id}
                                     title={logo.title}
+                                    delay={i * 0.2}
                                 >
                                     <img
                                         src={`${API_BASE_URL}/fetch-partnerlogo/${logo.image_path}`}
@@ -149,9 +166,9 @@ const NexusOrb = () => {
     }, []);
 
     return (
-        <div className="w-full flex items-center justify-center font-sans p-8 overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="w-full flex items-center justify-center font-sans p-8 overflow-hidden bg-white transition-colors duration-300">
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.4),rgba(0,0,0,0))]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.05),rgba(255,255,255,0))]"></div>
             </div>
 
             <div className="relative z-10 container mx-auto flex items-center justify-center">

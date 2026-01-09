@@ -1,0 +1,1 @@
+import{j as o}from"./index-BLm6lcbx.js";import{H as t,C as s,S as n}from"./lazyhomecomponents-DXG6gvLa.js";const e=()=>o.jsxs("div",{className:"bg-white dark:bg-gray-900 transition-colors duration-300",children:[o.jsx(t,{component:s}),o.jsx(t,{component:n})]});export{e as default};

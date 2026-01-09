@@ -46,7 +46,7 @@ const TagoCore = () => {
     return (
         <div className="max-w-[1980px] mx-auto flex flex-col justify-center w-full px-4 md:px-10 lg:px-30 my-10 lg:my-20 bg-white dark:bg-gray-900 transition-colors duration-300">
             {/* Header Section */}
-            <motion.div 
+            <motion.div
                 className="flex flex-col items-center text-center mb-12 md:mb-16 lg:mb-20"
                 initial={{ opacity: 0, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const TagoCore = () => {
             >
                 <h2 className="urbanist-bold text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px] leading-[1.1] mb-4">
                     <span className="text-primary">TagoCore</span>
-                    <span className="text-[#111827] dark:text-white">: The Heart of TagoBits</span>
+                    <span className="text-[#111827] dark:text-white">: The Heart of TagoCash</span>
                 </h2>
                 <p className="urbanist-regular text-[16px] sm:text-[18px] md:text-[20px] text-[#1F2933] dark:text-gray-300 max-w-3xl">
                     At the core of the Tago Platform is TagoCore, a powerful orchestration engine connecting 27+ global partners.

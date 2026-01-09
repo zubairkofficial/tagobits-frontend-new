@@ -4,21 +4,23 @@ import { Toaster } from 'react-hot-toast';
 import './App.css'
 
 // pages import
-import { Home } from './utils/lazycomponentloader'
-import { AboutUs } from './utils/lazycomponentloader'
-import { Contact } from './utils/lazycomponentloader'
+import { Home, AboutUs, Contact, Blogs, BlogDetail, TagoMedia } from './utils/lazycomponentloader'
 
 import Navbar from './components/navbar'
 import Footer from './components/footer'
 import ScrollToTop from './components/ScrollToTop'
 import LazyLoader from './utils/lazyloader'
 import { ThemeProvider } from './context/ThemeContext'
+import { useLocation } from 'react-router-dom'
 
 const Layout = ({ children }) => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
     <>
-      <Navbar />
-      <main className="pt-16 md:pt-20">
+      {!isHomePage && <Navbar />}
+      <main>
         {children}
       </main>
       <Footer />
@@ -36,6 +38,9 @@ function App() {
           <Route path="/" element={<Layout><LazyLoader component={Home} /></Layout>} />
           <Route path="/about" element={<Layout><LazyLoader component={AboutUs} /></Layout>} />
           <Route path="/contactus" element={<Layout><LazyLoader component={Contact} /></Layout>} />
+          <Route path="/blogs" element={<Layout><LazyLoader component={Blogs} /></Layout>} />
+          <Route path="/blogs/:slug" element={<Layout><LazyLoader component={BlogDetail} /></Layout>} />
+          <Route path="/tagomedia" element={<Layout><LazyLoader component={TagoMedia} /></Layout>} />
         </Routes>
       </Router>
     </ThemeProvider>

@@ -19,7 +19,7 @@ const OVERLAY_CARDS = [
     {
         id: "card",
         src: "/card.png",
-        alt: "Tagobits virtual card",
+        alt: "TagoCash virtual card",
     },
 ];
 
@@ -46,7 +46,7 @@ const Whytago = () => {
     return (
         <div className="flex flex-col items-center mt-4 lg:mt-8 mb-20 lg:mb-30 lg:px-30 xl:px-40 bg-white dark:bg-gray-900 transition-colors duration-300 ">
             <div className="flex xl:flex-row flex-col gap-10 md:gap-30 xl:gap-50 items-stretch">
-                <motion.div 
+                <motion.div
                     className="relative flex justify-center items-start xl:w-1/2 h-fit pt-16 md:pt-20 lg:pt-24 xl:pt-[80px]"
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -92,7 +92,7 @@ const Whytago = () => {
                         <div className="relative w-[220px] sm:w-[260px] md:w-[300px] lg:w-[300px] xl:w-[320px]">
                             <img
                                 src="/Iphone 14 - 2.png"
-                                alt="Tagobits mobile app"
+                                alt="TagoCash mobile app"
                                 className="w-full drop-shadow-2xl"
                             />
                             {/* Screen content (cycling QR / Secure / Card) */}
@@ -113,7 +113,7 @@ const Whytago = () => {
                         </div>
                     </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                     className="flex flex-col justify-center xl:justify-between max-[574px] gap-10 px-5 xl:w-1/2"
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -121,7 +121,7 @@ const Whytago = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <div className="flex flex-col items-center xl:items-start">
-                        <motion.span 
+                        <motion.span
                             className="w-fit border boder-1 rounded-4xl my-5 xl:my-0 p-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 transition-colors duration-300"
                             initial={{ opacity: 0, y: -20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -130,7 +130,7 @@ const Whytago = () => {
                         >
                             Why Tago
                         </motion.span>
-                        <motion.h2 
+                        <motion.h2
                             className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left leading-[1.1] font-medium"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -141,7 +141,7 @@ const Whytago = () => {
                             <span className="text-primary">Advantage</span>
                         </motion.h2>
                     </div>
-                    <motion.span 
+                    <motion.span
                         className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275] dark:text-gray-400"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -150,28 +150,28 @@ const Whytago = () => {
                     >
                         The Tago Platform is the infrastructure powering safe, secure and compliant borderless digital payments. Within the platform, TagoCash, the digital representation of the US Dollar is the standard for money movement.
                     </motion.span>
-                    <motion.div 
+                    <motion.div
                         className='flex flex-row gap-8 justify-center xl:justify-start'
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, margin: "-100px" }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                     >
-                        <Button 
-                            background="linear-gradient(to right, #2A3E9C, #1478C7)" 
-                            color="#ffffff" 
-                            buttontext="Contact Us" 
+                        <Button
+                            background="linear-gradient(to right, #2A3E9C, #1478C7)"
+                            color="#ffffff"
+                            buttontext="Contact Us"
                             to="/contactus"
                             hoverBackground="#ffffff"
                             hoverColor="#235BB2"
                             hoverBorder="2px solid #235BB2"
                             padding="px-6 py-2"
                         />
-                        <Button 
-                            background="#ffffff" 
-                            color="#235BB2" 
-                            buttontext="Learn More" 
-                            border="2px solid #235BB2" 
+                        <Button
+                            background="#ffffff"
+                            color="#235BB2"
+                            buttontext="Learn More"
+                            border="2px solid #235BB2"
                             hoverBackground="linear-gradient(to right, #2A3E9C, #1478C7)"
                             hoverColor="#ffffff"
                             hoverBorder="2px solid #ffffff"

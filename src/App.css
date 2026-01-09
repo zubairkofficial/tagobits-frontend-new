@@ -122,3 +122,45 @@ html, body {
 .animate-star-movement-top {
   animation: star-movement-top linear infinite alternate;
 }
+
+/* MacBook specific adjustments for navbar logo */
+/* MacBook Air 13" (1440x900 non-retina, 2560x1600 retina) */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .macbook-logo-adjust {
+    margin-left: -3rem !important;
+  }
+}
+
+/* MacBook Air 13" Retina (2560x1600) */
+@media screen and (min-width: 1440px) and (max-width: 1680px) and (-webkit-min-device-pixel-ratio: 2) {
+  .macbook-logo-adjust {
+    margin-left: -3rem !important;
+  }
+}
+
+/* MacBook Air 15" (1680x1050 non-retina, 2880x1800 retina) */
+@media screen and (min-width: 1680px) and (max-width: 1920px) {
+  .macbook-logo-adjust {
+    margin-left: -3rem !important;
+  }
+}
+
+/* MacBook Pro Retina displays */
+@media screen and (min-width: 2560px) and (max-width: 2880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .macbook-logo-adjust {
+    margin-left: -3.5rem !important;
+  }
+}
+
+/* Mobile view navbar adjustment - move navbar up */
+@media screen and (max-width: 767px) {
+  .mobile-navbar-top {
+    margin-top: -3rem !important;
+    padding-top: 1rem !important;
+  }
+  
+  /* Hero section wrapper adjustment for mobile */
+  .hero-section-wrapper {
+    margin-top: -2rem !important;
+  }
+}
