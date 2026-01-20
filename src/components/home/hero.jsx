@@ -55,9 +55,9 @@ const Hero = () => {
             }}
         >
             <div className="w-full hero-section-wrapper">
-                <Navbar isInHero={true} />
+                <Navbar />
             </div>
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 pt-10 md:pt-8 lg:pt-20 pb-4 md:pb-6 lg:pb-10 z-10">
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 pt-24 md:pt-28 lg:pt-32 pb-4 md:pb-6 lg:pb-10 z-10">
                 {/* Main Content - Centered */}
                 <div className="flex flex-col w-full max-w-6xl relative z-10 items-center text-center">
                     {/* 1. Header Animation - MONEY */}

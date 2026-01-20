@@ -27,7 +27,7 @@ const BugBounty = ({ scrollToInvestorsContact }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ amount: 0.2 }}
             transition={{ duration: 0.4 }}
-            className="w-full max-w-md h-64 bg-gradient-to-br from-[#FF6B35] to-[#FF8E53] rounded-2xl flex items-center justify-center"
+            className="w-full max-w-md h-64 bg-gradient-to-br from-[#1B67BA] to-[#2D3797] rounded-2xl flex items-center justify-center"
           >
             <div className="text-center text-white">
               <h4 className="text-2xl font-bold mb-2"><TranslatableText translateKey="bugbounty.card_title">Bug Bounty</TranslatableText></h4>
@@ -46,14 +46,14 @@ const BugBounty = ({ scrollToInvestorsContact }) => {
 
           <div className="space-y-4 sm:space-y-6">
             <motion.div
-              className="p-3 sm:p-6 rounded-2xl bg-[#FFF5F0] hover:shadow-md duration-300"
+              className="p-3 sm:p-6 rounded-2xl bg-[#F0F7FF] hover:shadow-md duration-300"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ amount: 0.2 }}
               transition={{ duration: 0.3 }}
             >
               <div className="flex items-start sm:items-center w-full">
-                <div className="text-white font-bold p-3 sm:p-4 px-4 sm:px-6 rounded-2xl mr-3 sm:mr-4 bg-[#FF6B35]">
+                <div className="text-white font-bold p-3 sm:p-4 px-4 sm:px-6 rounded-2xl mr-3 sm:mr-4 bg-[#1B67BA]">
                   $
                 </div>
                 <div className="flex-1">
@@ -113,7 +113,7 @@ const BugBounty = ({ scrollToInvestorsContact }) => {
           </div>
 
           <motion.div
-            className="mt-8 p-6 bg-gradient-to-r from-[#FFF5F0] to-[#FFF0F0] rounded-2xl border-l-4 border-[#FF6B35]"
+            className="mt-8 p-6 bg-gradient-to-r from-[#F0F7FF] to-[#E6F0FF] rounded-2xl border-l-4 border-[#1B67BA]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.2 }}
@@ -130,7 +130,7 @@ const BugBounty = ({ scrollToInvestorsContact }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToInvestorsContact}
-              className="mt-4 px-6 py-2 bg-[#FF6B35] text-white rounded-lg font-medium hover:bg-[#E55A2B] transition-colors"
+              className="mt-4 px-6 py-2 bg-[#1B67BA] text-white rounded-lg font-medium hover:bg-[#165296] transition-colors"
             >
               <TranslatableText translateKey="bugbounty.submit_btn">Submit Report</TranslatableText>
             </motion.button>

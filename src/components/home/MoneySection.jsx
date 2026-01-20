@@ -133,7 +133,7 @@ const MoneySection = () => {
             image: '/Card_3.png',
         },
         {
-            description: "Value should move as freely as information.\nTagoCash is global by design, connecting people, businesses, and markets across borders in real time.\nBuilt on regulated stablecoin rails,\nTagoCash enables secure, compliant, instant settlement wherever opportunity exists.\nNo Border, No Delay and no unnecessary intermediaries\nGlobal is not an ambition it is a requirement for modern money.",
+            description: "Value should move as freely as information.\nTagoCash is global by design, connecting people, businesses, and markets across borders in real time.\nBuilt on regulated stablecoin rails,\nNo Border, No Delay and no unnecessary intermediaries\nGlobal is not an ambition it is a requirement for modern money.",
             image: '/Card_4Global.png',
         },
     ];
