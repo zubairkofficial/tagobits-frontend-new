@@ -6,20 +6,36 @@ const ReCaptcha = ({ onVerify }) => {
   const scriptLoadedRef = useRef(false);
 
   useEffect(() => {
+    const renderRecaptcha = () => {
+      if (window.grecaptcha && window.grecaptcha.render && recaptchaRef.current) {
+        // Check if element already has reCAPTCHA rendered
+        if (recaptchaRef.current.hasChildNodes()) {
+          // Element already has content, skip rendering
+          return;
+        }
+
+        try {
+          widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
+            sitekey: '6LeXF00rAAAAAPoXZnLmnr7qc_4G90m78hvfDbDv',
+            callback: (token) => {
+              onVerify(true);
+            },
+            'expired-callback': () => {
+              onVerify(false);
+            },
+            'error-callback': () => {
+              onVerify(false);
+            },
+          });
+        } catch (error) {
+          console.error('Error rendering reCAPTCHA:', error);
+        }
+      }
+    };
+
     // Check if script is already loaded
-    if (window.grecaptcha && recaptchaRef.current && !widgetIdRef.current) {
-      widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
-        sitekey: '6LeXF00rAAAAAPoXZnLmnr7qc_4G90m78hvfDbDv',
-        callback: (token) => {
-          onVerify(true);
-        },
-        'expired-callback': () => {
-          onVerify(false);
-        },
-        'error-callback': () => {
-          onVerify(false);
-        },
-      });
+    if (window.grecaptcha && window.grecaptcha.render) {
+      renderRecaptcha();
       return;
     }
 
@@ -35,52 +51,33 @@ const ReCaptcha = ({ onVerify }) => {
         scriptLoadedRef.current = true;
 
         script.onload = () => {
-          if (window.grecaptcha && recaptchaRef.current && !widgetIdRef.current) {
-            widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
-              sitekey: '6LeXF00rAAAAAPoXZnLmnr7qc_4G90m78hvfDbDv',
-              callback: (token) => {
-                onVerify(true);
-              },
-              'expired-callback': () => {
-                onVerify(false);
-              },
-              'error-callback': () => {
-                onVerify(false);
-              },
-            });
-          }
+          renderRecaptcha();
         };
       } else {
         scriptLoadedRef.current = true;
-        // Script already exists, wait a bit and render
-        setTimeout(() => {
-          if (window.grecaptcha && recaptchaRef.current && !widgetIdRef.current) {
-            widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
-              sitekey: '6LeXF00rAAAAAPoXZnLmnr7qc_4G90m78hvfDbDv',
-              callback: (token) => {
-                onVerify(true);
-              },
-              'expired-callback': () => {
-                onVerify(false);
-              },
-              'error-callback': () => {
-                onVerify(false);
-              },
-            });
+        // Script already exists, wait for it to be ready
+        const checkReady = setInterval(() => {
+          if (window.grecaptcha && window.grecaptcha.render) {
+            clearInterval(checkReady);
+            renderRecaptcha();
           }
         }, 100);
+
+        // Clear interval after 5 seconds to prevent infinite loop
+        setTimeout(() => clearInterval(checkReady), 5000);
       }
     }
 
     return () => {
-      // Cleanup
-      if (widgetIdRef.current && window.grecaptcha) {
+      // Cleanup - reset the widget ID reference when component unmounts
+      if (widgetIdRef.current !== null && window.grecaptcha) {
         try {
           window.grecaptcha.reset(widgetIdRef.current);
         } catch (e) {
           console.error('Error resetting reCAPTCHA:', e);
         }
       }
+      widgetIdRef.current = null;
     };
   }, [onVerify]);
 

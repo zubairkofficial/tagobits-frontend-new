@@ -13,7 +13,7 @@ const Footer = () => {
   const [email, setEmail] = useState('');
   const location = useLocation();
   const { getFieldValue, loading } = usetagocashcontent('footer');
-  
+
   // Check if current page is blogs, contact us, or about us
   const isBlogsPage = location.pathname.startsWith('/blogs');
   const isContactPage = location.pathname === '/contactus';
@@ -104,9 +104,9 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <p className="text-xs font-extralight text-gray-100 max-w-4xl mx-auto mb-6">
+        {/* <p className="text-xs font-extralight text-gray-100 max-w-4xl mx-auto mb-6">
           {getFieldValue('sectionDescription')}
-        </p>
+        </p> */}
 
         <div className="flex justify-center gap-2 md:gap-4 sm:flex-wrap">
           <a

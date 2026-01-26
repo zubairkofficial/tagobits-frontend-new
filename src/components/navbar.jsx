@@ -18,10 +18,10 @@ const Navbar = ({ isInHero = false }) => {
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-    const navClasses = isInHero 
+    const navClasses = isInHero
         ? "relative py-3 sm:py-4 flex justify-between items-center w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-24 z-50 overflow-visible mobile-navbar-top"
         : "fixed top-0 left-0 right-0 py-3 sm:py-4 flex justify-between items-center w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-24 z-50 overflow-visible";
-    
+
     const navStyle = isInHero
         ? { position: 'relative', backdropFilter: 'none', borderBottom: 'none' }
         : { position: 'fixed', background: '#EFF1F2', backdropFilter: 'none', borderBottom: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' };
@@ -45,6 +45,10 @@ const Navbar = ({ isInHero = false }) => {
             <div className="hidden lg:flex items-center space-x-0 bg-white/60 backdrop-blur-md rounded-full border border-white/40 py-1 px-1 absolute left-1/2 xl:left-[43.5%] 2xl:left-1/2 -translate-x-1/2 z-30 shadow-sm transition-all duration-300">
                 {navLinks.map((link, index) => {
                     const isHovered = hoveredIndex === index;
+                    // Only show active state for non-Home pages
+                    const isActive = location.pathname === link.path;
+                    // Show active gradient only when not hovering on any other item
+                    const showActiveGradient = isActive && hoveredIndex === null;
 
                     return (
                         <div key={link.path} className="relative flex items-center">
@@ -54,10 +58,10 @@ const Navbar = ({ isInHero = false }) => {
                                 onMouseEnter={() => setHoveredIndex(index)}
                                 onMouseLeave={() => setHoveredIndex(null)}
                             >
-                                {/* Gradient Hover Background */}
-                                {isHovered && (
+                                {/* Gradient Background for Hover or Active State */}
+                                {(isHovered || showActiveGradient) && (
                                     <motion.div
-                                        layoutId="navbar-hover"
+                                        layoutId={showActiveGradient ? "navbar-active" : "navbar-hover"}
                                         className="absolute inset-0 rounded-full"
                                         style={{
                                             background: 'linear-gradient(135deg, #1B67BA 0%, #2D3797 100%)'
@@ -69,7 +73,7 @@ const Navbar = ({ isInHero = false }) => {
                                     />
                                 )}
 
-                                <div className={`relative z-10 px-4 lg:px-6 xl:px-8 py-2 rounded-full transition-all duration-500 font-medium text-sm lg:text-base ${isHovered ? 'text-white' : 'text-gray-800'
+                                <div className={`relative z-10 px-4 lg:px-6 xl:px-8 py-2 rounded-full transition-all duration-500 font-medium text-sm lg:text-base ${(isHovered || showActiveGradient) ? 'text-white' : 'text-gray-800'
                                     }`}>
                                     {link.name}
                                 </div>
