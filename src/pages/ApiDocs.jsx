@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import tagocashaxiosinstance from '../utils/tagocashaxiosinstance';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiBook, FiCode, FiLayers, FiCheckCircle, FiChevronRight, FiMenu, FiX } from 'react-icons/fi';
 
@@ -15,8 +15,8 @@ const ApiDocs = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                // Use local backend URL
-                const response = await axios.get('http://127.0.0.1:8000/api/api-docs/products');
+                // Use the configured axios instance which points to the correct environment
+                const response = await tagocashaxiosinstance.get('/api-docs/products');
                 const productsData = response.data;
 
                 if (Array.isArray(productsData)) {
@@ -34,7 +34,7 @@ const ApiDocs = () => {
                 }
             } catch (err) {
                 console.error("Error fetching documentation products:", err);
-                setError("Failed to load documentation. Please ensure the backend is running.");
+                setError("Failed to load documentation. Please try again later.");
                 setLoading(false);
             }
         };
@@ -45,7 +45,7 @@ const ApiDocs = () => {
     const fetchProductDetails = async (slug) => {
         setLoadingProduct(true);
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/api-docs/products/${slug}`);
+            const response = await tagocashaxiosinstance.get(`/api-docs/products/${slug}`);
             setSelectedProduct(response.data);
             setMobileMenuOpen(false); // Close mobile menu on selection
         } catch (err) {
