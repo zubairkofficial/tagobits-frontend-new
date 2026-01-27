@@ -6,3 +6,4 @@ export const Contact = lazy(() => import('../pages/contact'));
 export const Blogs = lazy(() => import('../pages/Blogs'));
 export const BlogDetail = lazy(() => import('../pages/BlogDetail'));
 export const TagoMedia = lazy(() => import('../pages/TagoMedia'));
+export const ApiDocs = lazy(() => import('../pages/ApiDocs'));

@@ -10,4 +10,3 @@ const tagocashaxiosinstance = axios.create({
 });
 
 export default tagocashaxiosinstance;
-

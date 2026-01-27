@@ -4,11 +4,12 @@ import { Toaster } from 'react-hot-toast';
 import './App.css'
 
 // pages import
-import { Home, AboutUs, Contact, Blogs, BlogDetail, TagoMedia } from './utils/lazycomponentloader'
+import { Home, AboutUs, Contact, Blogs, BlogDetail, TagoMedia, ApiDocs } from './utils/lazycomponentloader'
 
 import Navbar from './components/navbar'
 import Footer from './components/footer'
 import ScrollToTop from './components/ScrollToTop'
+import BackToTopButton from './components/BackToTopButton'
 import LazyLoader from './utils/lazyloader'
 import { ThemeProvider } from './context/ThemeContext'
 import { useLocation } from 'react-router-dom'
@@ -24,6 +25,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <BackToTopButton />
     </>
   );
 };
@@ -41,6 +43,7 @@ function App() {
           <Route path="/blogs" element={<Layout><LazyLoader component={Blogs} /></Layout>} />
           <Route path="/blogs/:slug" element={<Layout><LazyLoader component={BlogDetail} /></Layout>} />
           <Route path="/tagomedia" element={<Layout><LazyLoader component={TagoMedia} /></Layout>} />
+          <Route path="/api-docs" element={<Layout><LazyLoader component={ApiDocs} /></Layout>} />
         </Routes>
       </Router>
     </ThemeProvider>

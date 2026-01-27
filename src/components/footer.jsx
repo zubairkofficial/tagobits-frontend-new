@@ -67,6 +67,8 @@ const Footer = () => {
         <a href="https://staging01.tagocash.com/compliance" className="text-white hover:text-primary underline text-xs sm:text-sm">Compliance</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
         <a href="https://staging01.tagocash.com/customer-care" className="text-white hover:text-primary underline text-xs sm:text-sm">Customer Care</a>
+        <span className="text-gray-400 text-xs sm:text-sm">|</span>
+        <Link to="/api-docs" className="text-white hover:text-primary underline text-xs sm:text-sm">API Documentation</Link>
       </div>
       <div className='flex flex-col lg:flex-row items-center lg:items-start'>
         <div className='w-2/3'>
