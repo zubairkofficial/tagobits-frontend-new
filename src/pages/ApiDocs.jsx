@@ -107,8 +107,7 @@ const ApiDocs = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                className="flex items-center gap-3 mb-2"
-                            >
+                                className="flex items-center gap-3 mb-2">
                                 <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
                                     Developer Resources
                                 </span>
@@ -117,7 +116,7 @@ const ApiDocs = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
-                                className="text-3xl md:text-4xl font-bold text-gray-900"
+                                className="text-3xl md:text-4xl mt-5 font-bold text-gray-900"
                             >
                                 API Documentation
                             </motion.h1>
@@ -125,8 +124,7 @@ const ApiDocs = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="text-gray-500 mt-2 max-w-xl text-lg"
-                            >
+                                className="text-gray-500 mt-5 max-w-xl text-lg">
                                 Integate TagoBits services into your applications seamlessly with our comprehensive API reference.
                             </motion.p>
                         </div>
