@@ -90,6 +90,7 @@ const Navbar = ({ isInHero = false }) => {
                     {/* Google Play Button */}
                     <a
                         href="https://play.google.com/store/apps/details?id=com.tago.cash"
+                        
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex bg-black px-2.5 py-1.5 text-left rounded-lg items-center w-[140px] cursor-pointer hover:bg-black/90 transition-all shadow-sm flex-shrink-0"
