@@ -36,21 +36,31 @@ const MobileApp = () => {
                         viewport={{ amount: 0.2 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <button className="flex bg-black p-2 text-left rounded-lg items-center w-40 sm:w-40 cursor-pointer hover:bg-gray-900 transition-colors">
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.tago.cash"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex bg-black p-2 text-left rounded-lg items-center w-40 sm:w-40 cursor-pointer hover:bg-gray-900 transition-colors"
+                        >
                             <FaGooglePlay className="w-8 h-8 text-white mr-2" />
                             <div className="flex flex-col">
                                 <h4 className="text-[10px] text-white font-light uppercase">Free Download</h4>
                                 <p className="text-sm font-bold text-white">Google Play</p>
                             </div>
-                        </button>
+                        </a>
 
-                        <button className="flex bg-black p-2 text-left rounded-lg items-center w-40 sm:w-40 cursor-pointer hover:bg-gray-900 transition-colors">
+                        <a
+                            href="https://apps.apple.com/us/app/tagocash/id6752428469?l=fr-FR"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex bg-black p-2 text-left rounded-lg items-center w-40 sm:w-40 cursor-pointer hover:bg-gray-900 transition-colors"
+                        >
                             <FaApple className="w-8 h-8 text-white mr-2" />
                             <div className="flex flex-col">
                                 <h4 className="text-[10px] text-white font-light uppercase">Free Download</h4>
                                 <p className="text-sm font-bold text-white">App Store</p>
                             </div>
-                        </button>
+                        </a>
                     </motion.div>
                 </div>
 
