@@ -1,0 +1,1 @@
+import{j as o}from"./index-DK8hsJeb.js";import{H as s,S as t}from"./lazyhomecomponents-DpQS0OiU.js";const r=()=>o.jsx("div",{className:"bg-[#FBFDFF]",children:o.jsx(s,{component:t})});export{r as default};

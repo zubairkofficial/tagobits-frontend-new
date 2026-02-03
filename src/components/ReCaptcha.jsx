@@ -16,7 +16,7 @@ const ReCaptcha = ({ onVerify }) => {
 
         try {
           widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
-            sitekey: '6LeXF00rAAAAAPoXZnLmnr7qc_4G90m78hvfDbDv',
+            sitekey: '6LfDMI8sAAAAAGKSvlMFBQA7HlCrD05H-c2Qgg8Z',
             callback: (token) => {
               onVerify(true);
             },
