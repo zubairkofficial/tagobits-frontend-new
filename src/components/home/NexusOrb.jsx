@@ -46,8 +46,14 @@ const LogoWrapper = ({ children, className = "", isHighlighted = false, isHovere
 const LogoGrid = ({ logos }) => {
     const [hoveredId, setHoveredId] = useState(null);
     const displayedLogos = logos;
-    const centerLogo = displayedLogos.find(logo => logo.is_center) || null;
-    const outerLogos = displayedLogos.filter(logo => !logo.is_center);
+    let centerLogo = displayedLogos.find(logo => logo.is_center) || null;
+    let outerLogos = displayedLogos.filter(logo => !logo.is_center);
+
+    // If no logo is set as center but we have logos, pick the first one as center
+    if (!centerLogo && outerLogos.length > 0) {
+        centerLogo = outerLogos[0];
+        outerLogos = outerLogos.slice(1);
+    }
 
     // Constants for layout calculation (Increased for bigger orb)
     const radius = 380;
@@ -130,7 +136,7 @@ const LogoGrid = ({ logos }) => {
                         >
                             <div className="-translate-x-1/2 -translate-y-1/2">
                                 <LogoWrapper
-                                    className="w-28 h-28"
+                                    className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28"
                                     isHovered={hoveredId === logo.id}
                                     title={logo.title}
                                     delay={i * 0.2}
@@ -139,6 +145,10 @@ const LogoGrid = ({ logos }) => {
                                         src={`${API_BASE_URL}/fetch-partnerlogo/${logo.image_path}`}
                                         alt={logo.title || "Logo"}
                                         className="w-full h-full object-contain p-2"
+                                        onError={(e) => {
+                                            console.error("Error loading image:", logo.image_path);
+                                            e.target.src = "/tagobitslogo.png"; // Fallback to our logo
+                                        }}
                                     />
                                 </LogoWrapper>
                             </div>

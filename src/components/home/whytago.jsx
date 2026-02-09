@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
+import { useHomeContent } from '../../hooks/useHomeContent';
 import linegraphline from "../../assets/home/whytago/linegraphline.png"
 import Button from "../../components/button"
 import { IoCubeOutline } from "react-icons/io5";
@@ -24,7 +25,12 @@ const OVERLAY_CARDS = [
 ];
 
 const Whytago = () => {
+    const { getFieldValue } = useHomeContent('whyuse');
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    // Dynamic content from Admin Panel
+    const sectionTitle = getFieldValue('sectionTitle') || 'The Tago Platform Advantage';
+    const sectionSubtitle = getFieldValue('sectionSubtitle') || 'The Tago Platform is the infrastructure powering safe, secure and compliant borderless digital payments. Within the platform, TagoCash, the digital representation of the US Dollar is the standard for money movement.';
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -131,24 +137,22 @@ const Whytago = () => {
                             Why Tago
                         </motion.span>
                         <motion.h2
-                            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left leading-[1.1] font-medium"
+                            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-center xl:text-left leading-[1.1] font-medium whitespace-pre-line"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            <span className="text-[#111827] dark:text-white">The Tago Platform </span>
-                            <span className="text-primary">Advantage</span>
-                        </motion.h2>
+                            dangerouslySetInnerHTML={{ __html: sectionTitle.replace(/\n/g, '<br />') }}
+                        />
                     </div>
                     <motion.span
-                        className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275] dark:text-gray-400"
+                        className="text-[16px] sm:text-[18px] md:text-[20px] urbanist-regular text-center xl:text-left max-w-[780px] text-[#576275] dark:text-gray-400 whitespace-pre-line"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, margin: "-100px" }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
-                        The Tago Platform is the infrastructure powering safe, secure and compliant borderless digital payments. Within the platform, TagoCash, the digital representation of the US Dollar is the standard for money movement.
+                        {sectionSubtitle}
                     </motion.span>
                     <motion.div
                         className='flex flex-row gap-8 justify-center xl:justify-start'

@@ -1,34 +1,40 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useHomeContent } from '../../hooks/useHomeContent';
 import { MdSpeed, MdSecurity } from "react-icons/md";
 import { FaTools } from "react-icons/fa";
 import { BiSolidBank } from "react-icons/bi";
 
 const NewFeatures = () => {
-    // Static content as requested
+    const { getFieldValue } = useHomeContent('newFeatures');
+
+    // Dynamic content from Admin Panel
+    const sectionTitle = getFieldValue('sectionTitle') || 'TagoCash';
+    const sectionSubtitle = getFieldValue('sectionSubtitle') || 'The end of obscurity and complexity in financial transactions';
+
     const features = [
         {
             icon: <FaTools className="w-8 h-8" />,
-            title: "Financial toolbox for individuals & businesses",
-            description: "Manage treasury, move money with predictability, traceability, and total control.",
+            title: getFieldValue('feature1Title') || "Financial toolbox for individuals & businesses",
+            description: getFieldValue('feature1Description') || "Manage treasury, move money with predictability, traceability, and total control.",
             gradient: "from-[#1A69BC] to-[#29419F]"
         },
         {
             icon: <MdSpeed className="w-9 h-9" />,
-            title: "TagoCash = Compliance + Speed + Security",
-            description: "Move money with confidence, compliance, speed, and security.",
+            title: getFieldValue('feature2Title') || "TagoCash = Compliance + Speed + Security",
+            description: getFieldValue('feature2Description') || "Move money with confidence, compliance, speed, and security.",
             gradient: "from-primary-dark to-primary"
         },
         {
             icon: <MdSecurity className="w-9 h-9" />,
-            title: "TagoCore in Action: Trusted Infrastructure",
-            description: "Built on blockchain. Built for businesses. Backed by a consortium of trusted partners.",
+            title: getFieldValue('feature3Title') || "TagoCore in Action: Trusted Infrastructure",
+            description: getFieldValue('feature3Description') || "Built on blockchain. Built for businesses. Backed by a consortium of trusted partners.",
             gradient: "from-[#29419F] to-[#1A69BC]"
         },
         {
             icon: <BiSolidBank className="w-9 h-9" />,
-            title: "Proven Technology, Reliable Infrastructure & Legal Digital Currency",
-            description: "TagoCash is USDC Stablecoin in MPC wallet on a fast blockchain rail.",
+            title: getFieldValue('feature4Title') || "Proven Technology, Reliable Infrastructure & Legal Digital Currency",
+            description: getFieldValue('feature4Description') || "TagoCash is USDC Stablecoin in MPC wallet on a fast blockchain rail.",
             gradient: "from-primary to-primary-dark"
         }
     ];
@@ -41,6 +47,11 @@ const NewFeatures = () => {
 
     const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
+    // Get content from sendmony section for bottom part
+    const { getFieldValue: getSendMonyValue } = useHomeContent('sendmony');
+    const instantPayoutsTitle = getSendMonyValue('sectionTitle') || 'Instant Global Payouts';
+    const instantPayoutsDesc = getSendMonyValue('sectionDescription') || '...everyday payments made seamlessly';
+
     return (
         <div className="w-full" style={{ backgroundColor: '#FBFDFF' }}>
             {/* Features Grid Section */}
@@ -52,10 +63,10 @@ const NewFeatures = () => {
                     className="mb-16 text-center"
                 >
                     <h2 className="text-[30px] md:text-[50px] font-bold mb-4 text-[#14316A]">
-                        TagoCash
+                        {sectionTitle}
                     </h2>
                     <p className="text-gray-600 text-xl md:text-2xl max-w-4xl mx-auto">
-                        The end of obscurity and complexity in financial transactions
+                        {sectionSubtitle}
                     </p>
                 </motion.div>
 
@@ -94,7 +105,6 @@ const NewFeatures = () => {
                     className="absolute inset-0 w-full h-full object-cover opacity-20 blur-[2px]"
                 >
                     <source src="/Globe_without_text.mp4" type="video/mp4" />
-                    {/* Fallback to image if needed, assuming video loads for now */}
                 </video>
 
                 {/* Content */}
@@ -118,7 +128,7 @@ const NewFeatures = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#14316A] mb-4 tracking-tight"
                     >
-                        Instant Global Payouts
+                        {instantPayoutsTitle}
                     </motion.h2>
 
                     <motion.p
@@ -127,7 +137,7 @@ const NewFeatures = () => {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="text-base md:text-lg lg:text-xl text-gray-600 font-light"
                     >
-                        ...everyday payments made seamlessly
+                        {instantPayoutsDesc}
                     </motion.p>
                 </div>
             </div>

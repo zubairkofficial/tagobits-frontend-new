@@ -1,14 +1,16 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useHomeContent } from '../../hooks/useHomeContent';
 
 const VideoSection = () => {
+    const { getFieldValue } = useHomeContent('platformsecurity');
     const [playVideo, setPlayVideo] = useState(false);
 
-    // Static content as requested
-    const videoTitle = "Send Love with TagoCash❤️";
-    const videoDescription = "because every dollar deserves to arrive home whole.";
-    const videoWistiaUrl = "https://fast.wistia.com/embed/medias/41fgwutfck/";
+    // Dynamic content from Admin Panel (using platformsecurity section's video fields)
+    const videoTitle = getFieldValue('videoHeader') || "Send Love with TagoCash❤️";
+    const videoDescription = getFieldValue('videoDescription') || "because every dollar deserves to arrive home whole.";
+    const videoWistiaUrl = getFieldValue('videoUrl') || "https://fast.wistia.com/embed/medias/41fgwutfck/";
 
     // Extract video ID from URL
     const getVideoId = (url) => {
@@ -63,7 +65,7 @@ const VideoSection = () => {
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
                             {videoTitle}
                         </h2>
-                        <p className="text-xl md:text-2xl text-gray-600 font-medium">
+                        <p className="text-xl md:text-2xl text-gray-600 font-medium whitespace-pre-line">
                             {videoDescription}
                         </p>
                     </motion.div>

@@ -2,9 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import TextType from '../TextType';
 import Navbar from '../navbar';
+import { useHomeContent } from '../../hooks/useHomeContent';
 
 const Hero = () => {
-    // const { getFieldValue } = useHomeContent('money'); // Structure kept but using static data as requested
+    const { getFieldValue } = useHomeContent('money');
     const [isMobile, setIsMobile] = React.useState(false);
 
     // Detect mobile view
@@ -17,9 +18,13 @@ const Hero = () => {
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
-    // Static data hardcoded as requested
-    const moneyTitle = 'MONEY';
-    const whatIsIt = 'What is it?';
+    // Dynamic data from generic useHomeContent hook
+    const moneyTitle = getFieldValue('moneyTitle') || 'MONEY';
+    const whatIsIt = getFieldValue('whatIsIt') || 'What is it?';
+    const heading = getFieldValue('heading');
+    const description = getFieldValue('description');
+
+    // Video URL remains static as it's not currently editable in Admin for this section
     const videoUrl = 'https://fast.wistia.com/embed/medias/1jkulxved5/';
 
     const getWistiaVideoId = (url) => {
@@ -133,10 +138,28 @@ const Hero = () => {
                             </motion.div>
                         )}
 
+                        {/* 4. Description Text - Rendered dynamically if data exists */}
+                        {(heading || description) && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false }}
+                                transition={{ duration: 0.8, delay: 1.0 }}
+                                className="mt-12 md:mt-16 max-w-4xl text-center px-4"
+                            >
+                                {heading && (
+                                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                                        {heading}
+                                    </h2>
+                                )}
+                                {description && (
+                                    <p className="text-lg md:text-xl text-gray-600 leading-relaxed whitespace-pre-wrap">
+                                        {description}
+                                    </p>
+                                )}
+                            </motion.div>
+                        )}
                     </div>
-
-                    {/* 4. Description Text - Typing Animation - Starts at 1.5s */}
-
                 </div>
             </div>
         </section>

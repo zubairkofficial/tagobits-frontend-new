@@ -20,9 +20,7 @@ const Footer = () => {
   const isAboutPage = location.pathname === '/about';
   const needsMarginTop = isBlogsPage || isContactPage || isAboutPage;
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // We'll render even if loading to avoid flickering/missing footer issues
 
   const subscribeEmail = async (email) => {
     try {
@@ -45,7 +43,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`bg-gradient-to-b to-footer from-footer-primary text-white py-6 px-4 text-center w-full lg:px-20 ${needsMarginTop ? 'mt-0' : 'mt-0 lg:-mt-20'} relative z-50`}>
+    <footer className={`bg-gradient-to-b to-footer from-footer-primary text-white py-10 px-4 text-center w-full lg:px-20 ${needsMarginTop ? 'mt-0' : 'mt-10'} relative z-[100]`}>
       <h2 className="max-w-2xl mx-auto mb-4 tracking-widest text-base sm:text-lg" style={{ wordSpacing: '4px' }}>
         {getFieldValue('sectionTitle')}
       </h2>
