@@ -1,14 +1,4 @@
-export const blogsData = [
-    {
-        id: "1",
-        title: "Stablecoin Supply Grows by $18B in Just One Month",
-        slug: "stablecoin-supply-grows-18b",
-        date: "August 21, 2025",
-        author: "Tago Team",
-        category: "Stablecoin",
-        excerpt: "The GENIUS ACT was signed into law on July 18 by President Donald Trump. It establishes the first comprehensive federal framework to regulate stablecoins in the United States.",
-        image_url: "https://tago.cash/api/fetch-image/2521a45a-4002-4dc0-bb0f-7a6b18c4d715.png",
-        content: `
+const e=[{id:"1",title:"Stablecoin Supply Grows by $18B in Just One Month",slug:"stablecoin-supply-grows-18b",date:"August 21, 2025",author:"Tago Team",category:"Stablecoin",excerpt:"The GENIUS ACT was signed into law on July 18 by President Donald Trump. It establishes the first comprehensive federal framework to regulate stablecoins in the United States.",image_url:"https://tago.cash/api/fetch-image/2521a45a-4002-4dc0-bb0f-7a6b18c4d715.png",content:`
             <p>The GENIUS ACT was signed into law on July 18 by President Donald Trump. It establishes the first comprehensive federal framework to regulate stablecoins in the United States, and brings long-awaited clarity to the growing market for U.S. dollar-pegged tokens.</p>
             <p>Just weeks after being signed into law, this regulatory clarity has pushed the stablecoin market cap up an additional $18 billion, from about $260 billion on July 18 to over $278 billion by Aug. 21, a nearly 7% jump in just over a month.</p>
             <h3>Clarity After Years of Obscurity</h3>
@@ -29,18 +19,7 @@ export const blogsData = [
             <p>Meanwhile, international developments are accelerating in the wake of the GENIUS Act. The European Union’s MiCA regime and Hong Kong’s new stablecoin guidelines have developed in parallel to the U.S. model, prompting global issuers to reassess compliance frameworks on a multi-jurisdictional basis. Meanwhile, just this week, Wyoming became the first U.S. state to issue its own stablecoin.</p>
             <p>The economic impact of the GENIUS Act is undeniable. Good or bad is a judgement left for tomorrow.</p>
             <p><strong>Author:</strong> Tago Team<br/><strong>Published:</strong> 8/21/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "2",
-        title: "Fed Ends Supervisory Program Overseeing Banks' Crypto Activity",
-        slug: "fed-ends-supervisory-program",
-        date: "August 18, 2025",
-        author: "Mat Di Salvo & Guillermo Jimenez",
-        category: "Publications on Crypto & Finance",
-        excerpt: "The Federal Reserve has ended a supervisory program that monitored banks involved in crypto. U.S. banks will no longer face increased scrutiny.",
-        image_url: "https://tago.cash/api/fetch-image/40de05ec-8d52-404e-bffc-c6553eae9fe1.png",
-        content: `
+        `},{id:"2",title:"Fed Ends Supervisory Program Overseeing Banks' Crypto Activity",slug:"fed-ends-supervisory-program",date:"August 18, 2025",author:"Mat Di Salvo & Guillermo Jimenez",category:"Publications on Crypto & Finance",excerpt:"The Federal Reserve has ended a supervisory program that monitored banks involved in crypto. U.S. banks will no longer face increased scrutiny.",image_url:"https://tago.cash/api/fetch-image/40de05ec-8d52-404e-bffc-c6553eae9fe1.png",content:`
             <p><strong>In brief:</strong></p>
             <ul>
                 <li>The Federal Reserve has ended a supervisory program that monitored banks involved in crypto.</li>
@@ -61,18 +40,7 @@ export const blogsData = [
             <hr />
             <p><em>Re-published by Tago Team. The original article can be found at <a href="https://decrypt.co/335488/fed-ends-supervisory-program-bank-crypto-bitcoin" target="_blank">Decrypt.co</a></em></p>
             <p><strong>Author:</strong> By Mat Di Salvo & Edited by Guillermo Jimenez - Published at Decrypt.co<br/><strong>Published:</strong> 8/18/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "3",
-        title: "Payments with Stablecoins Surge",
-        slug: "payments-stablecoins-surge",
-        date: "August 20, 2025",
-        author: "Tago Team",
-        category: "Stablecoin",
-        excerpt: "Stablecoins reached 45% amongst merchants who accept crypto payments. Stablecoin usage amongst crypto payments has grown from about 7% in 2020 to 57% in the first half of 2025.",
-        image_url: "https://tago.cash/api/fetch-image/39cf86d6-07d7-4f4d-acdc-0a75427da37c.jpeg",
-        content: `
+        `},{id:"3",title:"Payments with Stablecoins Surge",slug:"payments-stablecoins-surge",date:"August 20, 2025",author:"Tago Team",category:"Stablecoin",excerpt:"Stablecoins reached 45% amongst merchants who accept crypto payments. Stablecoin usage amongst crypto payments has grown from about 7% in 2020 to 57% in the first half of 2025.",image_url:"https://tago.cash/api/fetch-image/39cf86d6-07d7-4f4d-acdc-0a75427da37c.jpeg",content:`
             <h3>Stablecoins reached 45% amongst merchants who accept crypto payments</h3>
             <p>Stablecoin usage amongst crypto payments has grown from about 7% in 2020 to 57% in the first half of 2025. At the same time, reliance on USDT has gradually declined from 100% in 2019 to 96% in 2025, showing that merchants are increasingly diversifying toward Circle USDC.</p>
             <p>The surge in stablecoin adoption represents a fundamental change in how businesses and consumers approach cryptocurrency transactions. “Stablecoins are becoming the preferred choice for both merchants and customers. TagoCash provides a natural migration path for both individuals and businesses“, says Mack Coulibaly, the founder of TagoCash.</p>
@@ -93,18 +61,7 @@ export const blogsData = [
             <p><strong>About TagoCash:</strong> TagoCash is a closed-loop financial platform built on regulated USDC stablecoin and modern banking connectivity. TagoCash delivers instant settlement, transparent pricing, and enterprise-grade compliance for people and businesses worldwide.</p>
             <p><strong>For more:</strong> <a href="https://www.tago.cash" target="_blank">https://www.tago.cash</a></p>
             <p><strong>Author:</strong> Tago Team<br/><strong>Published:</strong> 8/20/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "4",
-        title: "The SEC Classifies Stablecoins as Cash",
-        slug: "sec-declares-stablecoins-cash",
-        date: "August 17, 2025",
-        author: "Tago Team",
-        category: "Public News",
-        excerpt: "Certain stablecoins, like Circle USDC, are now officially classified as cash equivalent by the US Securities and Exchange Commission (SEC).",
-        image_url: "https://tago.cash/api/fetch-image/4623003c-9d3a-4d4e-b9cd-11b64da141aa.png",
-        content: `
+        `},{id:"4",title:"The SEC Classifies Stablecoins as Cash",slug:"sec-declares-stablecoins-cash",date:"August 17, 2025",author:"Tago Team",category:"Public News",excerpt:"Certain stablecoins, like Circle USDC, are now officially classified as cash equivalent by the US Securities and Exchange Commission (SEC).",image_url:"https://tago.cash/api/fetch-image/4623003c-9d3a-4d4e-b9cd-11b64da141aa.png",content:`
             <h3>The SEC Classifies Stablecoins as Cash</h3>
             <p>Certain stablecoins, like Circle USDC, are now officially classified as cash equivalent by the US Securities and Exchange Commission (SEC) through interim guidance released Monday August 4th, 2025.</p>
             <p>The regulatory shift permits qualifying USD-pegged stablecoins like TagoCash (Circle USDC) to be treated as cash equivalents on corporate balance sheets, will potentially trigger massive institutional adoption. This development strengthens regulation clarity and accelerates institutional adoption under SEC crypto guidance.</p>
@@ -119,18 +76,7 @@ export const blogsData = [
             <h3>The Future is Now: A Full Digital Experience</h3>
             <p>In line with TagoCash's vision to remain purely digital in the blockchain ecosystem, the official classification of the TagoCash as cash equivalent gives global legal legitimacy to TagoCash and its service offerings. This combination of GENIUS Act framework and SEC guidance creates unprecedented opportunities for mass institutional adoption of TagoCash services.</p>
             <p><strong>Author:</strong> Tago Team<br/><strong>Published:</strong> 8/17/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "5",
-        title: "Visa expands stablecoin offerings amid rising competition from institutions",
-        slug: "visa-expands-stablecoin-offerings",
-        date: "September 17, 2025",
-        author: "Vince Quill",
-        category: "Finance",
-        excerpt: "Payment company Visa expanded stablecoin offerings on its settlement platform by adding support for Global Dollar USDG and PayPal USD.",
-        image_url: "https://tago.cash/api/fetch-image/e4e6fc4c-2f52-4b6c-ac59-9d4de6da5bea.png",
-        content: `
+        `},{id:"5",title:"Visa expands stablecoin offerings amid rising competition from institutions",slug:"visa-expands-stablecoin-offerings",date:"September 17, 2025",author:"Vince Quill",category:"Finance",excerpt:"Payment company Visa expanded stablecoin offerings on its settlement platform by adding support for Global Dollar USDG and PayPal USD.",image_url:"https://tago.cash/api/fetch-image/e4e6fc4c-2f52-4b6c-ac59-9d4de6da5bea.png",content:`
             <p>Payment company Visa expanded stablecoin offerings on its settlement platform by adding support for Global Dollar USDG, PayPal USD, PyUSD, Euro Coin EURC and two new blockchain networks, Steller and Avalanche.</p>
             <p>The integration allows users to send and receive stablecoin payments through the supported blockchain networks or convert their balances to traditional fiat currency, Visa said in a press release on Thursday.</p>
             <p>Visa already offered support to Circle’s USD Coin USDC, stablecoin, while supported networks for transfer and settlement include Ethereum, Solana and the newly added chains.</p>
@@ -145,18 +91,7 @@ export const blogsData = [
             <p>Earlier this year, representatives for Mastercard acknowledged that stablecoins directly threaten the payment processor business model and are a disruptive technology.</p>
             <p>In June, Noam Hurwitz, head of engineering at payments infrastructure company Alchemy, told Cointelegraph that onchain stablecoin transaction volume has surpassed that of Visa and Mastercard and is becoming the “default settlement layer” for the internet.</p>
             <p><strong>Author:</strong> Vince Quill<br/><strong>Published:</strong> 9/17/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "6",
-        title: "Why Genius Act & Clarity Bill are Important to TagoCash",
-        slug: "why-genius-act-clarity-bill-important",
-        date: "September 17, 2025",
-        author: "Tago Legal",
-        category: "Legal News",
-        excerpt: "The GENIUS Act and CLARITY ACT bring several key benefits to payment platforms like TagoCash. Detailed breakdown.",
-        image_url: "https://tago.cash/api/fetch-image/7cfd3cb8-648d-4a42-a85a-942a06428cf8.jpeg",
-        content: `
+        `},{id:"6",title:"Why Genius Act & Clarity Bill are Important to TagoCash",slug:"why-genius-act-clarity-bill-important",date:"September 17, 2025",author:"Tago Legal",category:"Legal News",excerpt:"The GENIUS Act and CLARITY ACT bring several key benefits to payment platforms like TagoCash. Detailed breakdown.",image_url:"https://tago.cash/api/fetch-image/7cfd3cb8-648d-4a42-a85a-942a06428cf8.jpeg",content:`
             <p>The GENIUS Act was signed into law by President Trump on July 18th, 2025. The CLARITY ACT passed the House and is waiting for the Senate to pass before going to the President’s desk for signature. Together Genius act and Clarity bill bring several key benefits to payment platforms like TagoCash. Here's a clear breakdown with focus to our business:</p>
             <h3>1. Clear regulatory framework & credibility</h3>
             <p>GENIUS now formally defines “payment stablecoins” and establishes specific rules for issuing and custody. CLARITY sets clear jurisdiction (SEC or CFTC) for digital asset platforms, ending uncertainty around compliance.</p>
@@ -174,18 +109,7 @@ export const blogsData = [
             <p>Faster transaction processing and lower fees compared to traditional banking systems are encouraged by GENIUS. This makes TagoCash services more competitive to users and businesses.</p>
             <p><strong>In short:</strong> GENIUS ACT gives TagoCash a solid legal foundation, strong consumer protections, and access to regulated financial infrastructure. CLARITY completes the picture by settling regulatory jurisdiction.</p>
             <p><strong>Author:</strong> Tago Legal<br/><strong>Published:</strong> 9/17/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "7",
-        title: "TagoCash: Revolutionizing Money with Instant, Cheap, and Secure Digital Wallet",
-        slug: "tagocash-revolutionizing-money",
-        date: "September 17, 2025",
-        author: "Tago Cash",
-        category: "Product",
-        excerpt: "TagoCash is a game-changer that provides users with an easy, secure, and transparent way to send and receive money.",
-        image_url: "https://tago.cash/api/fetch-image/8884b199-21cc-4606-8ca6-306c2cd5641a.webp",
-        content: `
+        `},{id:"7",title:"TagoCash: Revolutionizing Money with Instant, Cheap, and Secure Digital Wallet",slug:"tagocash-revolutionizing-money",date:"September 17, 2025",author:"Tago Cash",category:"Product",excerpt:"TagoCash is a game-changer that provides users with an easy, secure, and transparent way to send and receive money.",image_url:"https://tago.cash/api/fetch-image/8884b199-21cc-4606-8ca6-306c2cd5641a.webp",content:`
             <p>In today's fast-paced world, where digital transactions have become the norm, a new fintech disruptor called TagoCash is making waves by offering an innovative solution that promises to simplify cash movement. TagoCash is not just another digital wallet; it's a game-changer that provides users with an easy, secure, and transparent way to send and receive money, all while saving substantial amounts in fees.</p>
             <h3>The TagoCash Difference</h3>
             <p>TagoCash stands out from the crowd with its user-friendly interface and cutting-edge technology that streamlines cross-border transactions. With TagoCash, users can send and receive money among themselves, whether they are friends, family, or business associates, without incurring any transaction fees. Yes, you read that right—free money transfers!</p>
@@ -196,33 +120,11 @@ export const blogsData = [
             <h3>The TagoCash Vision</h3>
             <p>TagoCash is on a mission to transform the way people think about digital payments. With their fast, easy, secure, and transparent digital wallet, they aim to empower individuals and businesses alike to send and receive money globally while saving a significant amount in fees.</p>
             <p><strong>Author:</strong> Tago Cash<br/><strong>Published:</strong> 9/17/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "8",
-        title: "Africa's Leap to Digital Commerce",
-        slug: "africas-leap-to-digital-commerce",
-        date: "May 25, 2025",
-        author: "Tago News",
-        category: "Public News",
-        excerpt: "We are witnessing Africa's digital revolution as mobile payments and digital wallets redefine commerce. Penetration grew from 23% to 46%.",
-        image_url: "https://tago.cash/api/fetch-image/0da503a6-d86e-4405-aa68-21e1b55b701b.png",
-        content: `
+        `},{id:"8",title:"Africa's Leap to Digital Commerce",slug:"africas-leap-to-digital-commerce",date:"May 25, 2025",author:"Tago News",category:"Public News",excerpt:"We are witnessing Africa's digital revolution as mobile payments and digital wallets redefine commerce. Penetration grew from 23% to 46%.",image_url:"https://tago.cash/api/fetch-image/0da503a6-d86e-4405-aa68-21e1b55b701b.png",content:`
             <p>We are witnessing Africa's digital revolution as mobile payments, electronic transfers, and digital wallets redefine commerce. The continent experienced a journey from a 23% to a 46% digital payment penetration rate, setting the stage for a massive leap in digital commerce for 2025 and beyond.</p>
             <p>TagoCash is launching all over Africa starting in June 2025. This digital evolution position injects more fuel to the adoption growth TagoCash is forecasting. We are pleased that our strategy is validated.</p>
             <p><strong>Author:</strong> Tago News<br/><strong>Published:</strong> 5/25/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "9",
-        title: "Why Blockchain Stable Coin Payments Is a Game Changer",
-        slug: "why-blockchain-stable-coin-payments",
-        date: "May 25, 2025",
-        author: "Tago Team",
-        category: "Stablecoin",
-        excerpt: "Stablecoin payment & remittance is emerging as a strong alternative to the traditional forms of money transfers.",
-        image_url: "https://tago.cash/api/fetch-image/7108954c-bbca-4f28-bd4b-a1922c9baec0.png",
-        content: `
+        `},{id:"9",title:"Why Blockchain Stable Coin Payments Is a Game Changer",slug:"why-blockchain-stable-coin-payments",date:"May 25, 2025",author:"Tago Team",category:"Stablecoin",excerpt:"Stablecoin payment & remittance is emerging as a strong alternative to the traditional forms of money transfers.",image_url:"https://tago.cash/api/fetch-image/7108954c-bbca-4f28-bd4b-a1922c9baec0.png",content:`
             <p>The world is rapidly shifting towards a cashless economy, and digital transactions have become an essential part of our lives. In this changing landscape, stablecoin payment & remittance is emerging as a strong alternative to the traditional forms of payment and money transfers.</p>
             <h3>What is crypto remittance?</h3>
             <p>Remittance refers to the process of transferring money either as a gift or as payment. Traditionally, it has been associated with high fees and long processing times. Crypto remittance in general and stable coin in particular, works similarly to traditional fiat remittance, with the only difference being the use of fiat-pegged crypto currencies as means of transport.</p>
@@ -243,18 +145,7 @@ export const blogsData = [
                 <li>100% wallet recovery</li>
             </ul>
             <p><strong>Author:</strong> Tago Team<br/><strong>Published:</strong> 5/25/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    },
-    {
-        id: "10",
-        title: "Concept of the Tago Platform",
-        slug: "concept-of-tago-platform",
-        date: "May 27, 2025",
-        author: "Mack Coulibaly",
-        category: "Company",
-        excerpt: "Imagine a world where there is only one currency. Tago World is a virtual community connected via a single digital currency.",
-        image_url: "https://tago.cash/api/fetch-image/a64232ac-4afa-417c-8ea2-0e092515fd6c.png",
-        content: `
+        `},{id:"10",title:"Concept of the Tago Platform",slug:"concept-of-tago-platform",date:"May 27, 2025",author:"Mack Coulibaly",category:"Company",excerpt:"Imagine a world where there is only one currency. Tago World is a virtual community connected via a single digital currency.",image_url:"https://tago.cash/api/fetch-image/a64232ac-4afa-417c-8ea2-0e092515fd6c.png",content:`
             <h3>What is Tago Platform?</h3>
             <p>Rather than platform, we refer to our project as the Tago World. Imagine a world where there is only one currency. Yes, there is No US Dollar, No Euro, No Yen, No Pound; just one currency used for all trades and commerce. That imaginary utopian world is the Tago World.</p>
             <p>The Tago world is therefore a virtual community of people connected to the Tago Platform via a single digital currency called the Tago (USDC).</p>
@@ -265,6 +156,4 @@ export const blogsData = [
             <h3>Tago Partnership</h3>
             <p>"Partnership" is a commercial relationship which enables bilateral peer-to-peer transfer of assets. In TagoCash, the partnership is like a contract that establishes an encrypted link between two or more parties.</p>
             <p><strong>Author:</strong> Mack Coulibaly<br/><strong>Published:</strong> 5/27/2025 | <strong>Updated:</strong> 11/21/2025</p>
-        `
-    }
-];
+        `}];export{e as b};

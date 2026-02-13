@@ -48,23 +48,23 @@ const Footer = () => {
         {getFieldValue('sectionTitle')}
       </h2>
       <div className="flex flex-wrap justify-center gap-3 mb-4 w-full">
-        <a href="https://staging01.tagocash.com/" className="text-white hover:text-primary underline text-xs sm:text-sm">Home</a>
+        <a href="https://tago.cash/" className="text-white hover:text-primary underline text-xs sm:text-sm">Home</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
-        <a href="https://staging01.tagocash.com/privacy" className="text-white hover:text-primary underline text-xs sm:text-sm">Privacy</a>
+        <a href="https://tago.cash/privacy" className="text-white hover:text-primary underline text-xs sm:text-sm">Privacy</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
-        <a href="https://staging01.tagocash.com/master-service-agreement" className="text-white hover:text-primary underline text-xs sm:text-sm">Master Service Agreement</a>
+        <a href="https://tago.cash/master-service-agreement" className="text-white hover:text-primary underline text-xs sm:text-sm">Master Service Agreement</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
-        <a href="https://staging01.tagocash.com/security" className="text-white hover:text-primary underline text-xs sm:text-sm">Security</a>
+        <a href="https://tago.cash/security" className="text-white hover:text-primary underline text-xs sm:text-sm">Security</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
-        <a href="https://staging01.tagocash.com/terms" className="text-white hover:text-primary underline text-xs sm:text-sm">Terms of Service</a>
+        <a href="https://tago.cash/terms" className="text-white hover:text-primary underline text-xs sm:text-sm">Terms of Service</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
-        <a href="https://staging01.tagocash.com/personal-data-policy" className="text-white hover:text-primary underline text-xs sm:text-sm">Personal Data Policy</a>
+        <a href="https://tago.cash/personal-data-policy" className="text-white hover:text-primary underline text-xs sm:text-sm">Personal Data Policy</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
-        <a href="https://staging01.tagocash.com/report" className="text-white hover:text-primary underline text-xs sm:text-sm">Report</a>
+        <a href="https://tago.cash/report" className="text-white hover:text-primary underline text-xs sm:text-sm">Report</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
-        <a href="https://staging01.tagocash.com/compliance" className="text-white hover:text-primary underline text-xs sm:text-sm">Compliance</a>
+        <a href="https://tago.cash/compliance" className="text-white hover:text-primary underline text-xs sm:text-sm">Compliance</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
-        <a href="https://staging01.tagocash.com/customer-care" className="text-white hover:text-primary underline text-xs sm:text-sm">Customer Care</a>
+        <a href="https://tago.cash/customer-care" className="text-white hover:text-primary underline text-xs sm:text-sm">Customer Care</a>
         <span className="text-gray-400 text-xs sm:text-sm">|</span>
         <Link to="/api-docs" className="text-white hover:text-primary underline text-xs sm:text-sm">API Documentation</Link>
       </div>
