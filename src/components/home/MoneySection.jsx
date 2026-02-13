@@ -48,8 +48,10 @@ const BulletIcon = ({ style }) => (
 );
 
 const MoneySection = () => {
-    // Using static data as requested
-    const sectionHeading = 'Borderless digital wallet for instant payments';
+    const { getFieldValue } = useHomeContent('moneyTrust');
+
+    // Dynamic data from Admin Panel
+    const sectionHeading = getFieldValue('sectionHeading') || 'Borderless digital wallet for instant payments';
     const [openCardIndex, setOpenCardIndex] = useState(0); // First card open by default
     const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
     const [isMobile, setIsMobile] = useState(false);
@@ -92,13 +94,13 @@ const MoneySection = () => {
     };
 
     const cardTitles = [
-        'Digital Wallet',
-        'Subtle',
-        'Essential',
-        'Global'
+        getFieldValue('card1Title') || 'Digital Wallet',
+        getFieldValue('card2Title') || 'Subtle',
+        getFieldValue('card3Title') || 'Essential',
+        getFieldValue('card4Title') || 'Global'
     ];
 
-    const card1VideoUrl = 'https://fast.wistia.com/embed/medias/8e775zrchi/';
+    const card1VideoUrl = getFieldValue('card1VideoUrl') || 'https://fast.wistia.com/embed/medias/8e775zrchi/';
     const card1VideoId = getWistiaVideoId(card1VideoUrl);
 
     const splitHeading = (heading) => {
@@ -119,22 +121,23 @@ const MoneySection = () => {
 
     const { firstLine, secondLine } = splitHeading(sectionHeading);
 
+    // Using default images if none provided in admin
     const cardData = [
         {
-            description: "Money is a shared system of trust that allows value to be stored, exchanged and moved across people, time, and borders.\nMoney should be Subtle when it works; Essential when it matters; & Global by default.",
-            image: '/card.png', // Using existing card.png as Card_1.png is missing in public
+            description: getFieldValue('card1Description') || "Money is a shared system of trust that allows value to be stored, exchanged and moved across people, time, and borders.\nMoney should be Subtle when it works; Essential when it matters; & Global by default.",
+            image: '/card.png',
         },
         {
-            description: "TagoCash is intentionally unobtrusive.\nWe remove friction, noise, and complexity so money moves naturally in the background of everyday life.\nNo spectacle. No distraction. Just seamless execution.\nSubtlety is not absence it is confidence without excess.\nWhen technology is designed correctly, it disappears.",
-            image: '/Card_2.png',
+            description: getFieldValue('card2Description') || "TagoCash is intentionally unobtrusive.\nWe remove friction, noise, and complexity so money moves naturally in the background of everyday life.\nNo spectacle. No distraction. Just seamless execution.\nSubtlety is not absence it is confidence without excess.\nWhen technology is designed correctly, it disappears.",
+            image: getFieldValue('card2ImageUrl') || '/Card_2.png',
         },
         {
-            description: "Money is not optional it is foundational.\nTagoCash is built to be relied upon daily, not experimented with occasionally.\nFrom storing value to settling payments, from individuals to enterprises,\nTagoCash is the quiet constant people trust when certainty matters.\nEssential means dependable. Essential means always on.\nEssential means it works every time.",
-            image: '/Card_3.png',
+            description: getFieldValue('card3Description') || "Money is not optional it is foundational.\nTagoCash is built to be relied upon daily, not experimented with occasionally.\nFrom storing value to settling payments, from individuals to enterprises,\nTagoCash is the quiet constant people trust when certainty matters.\nEssential means dependable. Essential means always on.\nEssential means it works every time.",
+            image: getFieldValue('card3ImageUrl') || '/Card_3.png',
         },
         {
-            description: "Value should move as freely as information.\nTagoCash is global by design, connecting people, businesses, and markets across borders in real time.\nBuilt on regulated stablecoin rails,\nNo Border, No Delay and no unnecessary intermediaries\nGlobal is not an ambition it is a requirement for modern money.",
-            image: '/Card_4Global.png',
+            description: getFieldValue('card4Description') || "Value should move as freely as information.\nTagoCash is global by design, connecting people, businesses, and markets across borders in real time.\nBuilt on regulated stablecoin rails,\nNo Border, No Delay and no unnecessary intermediaries\nGlobal is not an ambition it is a requirement for modern money.",
+            image: getFieldValue('card4ImageUrl') || '/Card_4Global.png',
         },
     ];
 

@@ -1,32 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaUniversity, FaStore, FaGlobeAmericas, FaRocket } from "react-icons/fa";
+import { useHomeContent } from '../../hooks/useHomeContent';
 
 const GetMore = () => {
-    // Static content as requested
+    const { getFieldValue } = useHomeContent('getmore');
+
+    const heading1 = getFieldValue('heading1') || "Wherever you go, Tago";
+    const heading2 = getFieldValue('heading2') || "Get More with TagoCash";
+
     const features = [
         {
             icon: <FaUniversity className="w-8 h-8 text-white" />,
-            title: "Deposit & Withdrawal to and from Bank, Mobile Money and Digital Wallet",
-            description: "Add or withdraw funds to your TagoCash wallet via bank , debit card, mobile money or digital wallets.",
+            title: getFieldValue('feature1Title') || "Deposit & Withdrawal to and from Bank, Mobile Money and Digital Wallet",
+            description: getFieldValue('feature1Description') || "Add or withdraw funds to your TagoCash wallet via bank , debit card, mobile money or digital wallets.",
             gradient: "from-[#1A69BC] to-[#29419F]"
         },
         {
             icon: <FaStore className="w-8 h-8 text-white" />,
-            title: "Payments & Local Cash Withdrawal",
-            description: "Embedded QuickPay & TagoPat for store & online payments at more than 36,000 merchants & local stores.",
+            title: getFieldValue('feature2Title') || "Payments & Local Cash Withdrawal",
+            description: getFieldValue('feature2Description') || "Embedded QuickPay & TagoPat for store & online payments at more than 36,000 merchants & local stores.",
             gradient: "from-primary-dark to-primary"
         },
         {
             icon: <FaRocket className="w-8 h-8 text-white" />,
-            title: "TagoMe, GetPaid, QuickCollect & Raise Funds are Next Generation of Stablecoin Instant Global Payment Tools",
-            description: "TagoCash is about real-life use cases - Whatever you want to do with money is made easier, simpler, faster and cheaper with TagoCash.",
+            title: getFieldValue('feature3Title') || "TagoMe, GetPaid, QuickCollect & Raise Funds are Next Generation of Stablecoin Instant Global Payment Tools",
+            description: getFieldValue('feature3Description') || "TagoCash is about real-life use cases - Whatever you want to do with money is made easier, simpler, faster and cheaper with TagoCash.",
             gradient: "from-[#29419F] to-[#1A69BC]"
         },
         {
             icon: <FaGlobeAmericas className="w-8 h-8 text-white" />,
-            title: "Borderless & Global Availability",
-            description: "TagoCash operates without financial border barriers. It is natively blockchain and borderless.",
+            title: getFieldValue('feature4Title') || "Borderless & Global Availability",
+            description: getFieldValue('feature4Description') || "TagoCash operates without financial border barriers. It is natively blockchain and borderless.",
             gradient: "from-primary to-primary-dark"
         }
     ];
@@ -43,7 +48,7 @@ const GetMore = () => {
                         transition={{ duration: 0.3 }}
                         style={{ WebkitBackgroundClip: "text" }}
                     >
-                        Wherever you go, Tago
+                        {heading1}
                     </motion.h2>
                     <motion.h2
                         className="text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary pb-4 lg:pb-0 leading-relaxed"
@@ -53,7 +58,7 @@ const GetMore = () => {
                         transition={{ duration: 0.3 }}
                         style={{ WebkitBackgroundClip: "text" }}
                     >
-                        Get More with TagoCash
+                        {heading2}
                     </motion.h2>
                 </div>
 

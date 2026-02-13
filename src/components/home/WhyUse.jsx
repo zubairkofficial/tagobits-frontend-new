@@ -2,32 +2,37 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { IoFlash, IoCloud, IoShieldCheckmark } from "react-icons/io5";
 import { FaEye } from "react-icons/fa";
+import { useHomeContent } from '../../hooks/useHomeContent';
 
 const WhyUse = () => {
-    // Static content as requested
+    const { getFieldValue } = useHomeContent('whyuse');
+
+    const sectionTitle = getFieldValue('sectionTitle') || "Is TagoCash for you ? YES!";
+    const sectionSubtitle = getFieldValue('sectionSubtitle') || "Here is why:";
+
     const features = [
         {
             icon: <IoFlash className="w-8 h-8 text-white" />,
-            title: "Fast",
-            description: "Pay or Send Money that settled with 100% of what you sent in seconds",
+            title: getFieldValue('feature1Title') || "Fast",
+            description: getFieldValue('feature1Description') || "Pay or Send Money that settled with 100% of what you sent in seconds",
             gradient: "from-[#1A69BC] to-[#29419F]"
         },
         {
             icon: <IoCloud className="w-8 h-8 text-white" />,
-            title: "Free",
-            description: "Free Limited Money Transfer to partners",
+            title: getFieldValue('feature2Title') || "Free",
+            description: getFieldValue('feature2Description') || "Free Limited Money Transfer to partners",
             gradient: "from-primary-dark to-primary"
         },
         {
             icon: <FaEye className="w-8 h-8 text-white" />,
-            title: "Affordable & Transparent",
-            description: "Full disclosure on all cost, if any. No hidden fees.",
+            title: getFieldValue('feature3Title') || "Affordable & Transparent",
+            description: getFieldValue('feature3Description') || "Full disclosure on all cost, if any. No hidden fees.",
             gradient: "from-[#29419F] to-[#1A69BC]"
         },
         {
             icon: <IoShieldCheckmark className="w-8 h-8 text-white" />,
-            title: "Secure, Safe, Compliant & Private",
-            description: "Biometric Authentication & Cryptographic Security - KYC & AML compliant - No personal information disclosed with payments",
+            title: getFieldValue('feature4Title') || "Secure, Safe, Compliant & Private",
+            description: getFieldValue('feature4Description') || "Biometric Authentication & Cryptographic Security - KYC & AML compliant - No personal information disclosed with payments",
             gradient: "from-primary to-primary-dark"
         }
     ];
@@ -43,9 +48,9 @@ const WhyUse = () => {
                     transition={{ duration: 0.3 }}
                 >
                     <h3 className="text-[30px] md:text-[44px] text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-[700] leading-[1.2] mb-3 text-center md:text-start">
-                        Is TagoCash for you ? YES!
+                        {sectionTitle}
                     </h3>
-                    <p className="text-sm font-medium text-gray-500 mb-7 text-center md:text-start">Here is why:</p>
+                    <p className="text-sm font-medium text-gray-500 mb-7 text-center md:text-start">{sectionSubtitle}</p>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-6 w-full">

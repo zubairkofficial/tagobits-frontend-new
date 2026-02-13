@@ -8,9 +8,14 @@ import redpin from '../../assets/jurisdictions/redpin.png';
 import orangepin from '../../assets/jurisdictions/orangepin.png';
 import purplepin from '../../assets/jurisdictions/purplepin.png';
 
+import { useHomeContent } from '../../hooks/useHomeContent';
+
 const Jurisdictions = () => {
+    const { getFieldValue } = useHomeContent('jurisdictions');
     const [searchTerm, setSearchTerm] = useState('');
     const [filterOption, setFilterOption] = useState('all');
+
+    const heading = getFieldValue('heading') || "Where & How can I use TagoCash?";
 
     // Import Flags just for this section
     const Flag = React.lazy(() => import('react-world-flags'));
@@ -72,7 +77,7 @@ const Jurisdictions = () => {
                     <motion.h3
                         className="text-[32px] font-[700] text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary text-center md:text-left lg:text-center xl:text-left mb-6"
                     >
-                        Where & How can I use TagoCash?
+                        {heading}
                     </motion.h3>
 
                     <div className="h-full p-5 rounded-xl shadow-sm bg-white border border-gray-100">

@@ -1,32 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, DollarSign, Fingerprint, Eye } from 'lucide-react';
+import { useHomeContent } from '../../hooks/useHomeContent';
 
 const TagoBridge = () => {
-    const fastSectionTitle = "TagoCash is"; // "F.A.S.T" comes after span
+    const { getFieldValue } = useHomeContent('tagobanksection');
+
+    const fastSectionTitle = getFieldValue('fastSectionTitle') || "TagoCash is";
 
     const cards = [
         {
             icon: Clock,
-            heading: "Fast",
-            description: "Real time transactions"
+            heading: getFieldValue('fastHeading') || "Fast",
+            description: getFieldValue('fastDescription') || "Real time transactions"
         },
         {
             icon: DollarSign,
-            heading: "Affordable",
-            description: "Free transfer to partners"
+            heading: getFieldValue('affordableHeading') || "Affordable",
+            description: getFieldValue('affordableDescription') || "Free transfer to partners"
         },
         {
             icon: Fingerprint,
-            heading: "Secure",
-            description: "Encrypted blockchain transmitted and access by your biometric"
+            heading: getFieldValue('secureHeading') || "Secure",
+            description: getFieldValue('secureDescription') || "Encrypted blockchain transmitted and access by your biometric"
         },
         {
             icon: Eye,
-            heading: "Transparent",
-            description: "No Hidden fees, what you see is what you pay"
+            heading: getFieldValue('transparentHeading') || "Transparent",
+            description: getFieldValue('transparentDescription') || "No Hidden fees, what you see is what you pay"
         }
     ];
+
+    const videoUrl = getFieldValue('videoUrl') || "/TagoCash_fast_section_video.webm";
 
     return (
         <div className="min-h-screen bg-white relative overflow-hidden">
@@ -140,7 +145,7 @@ const TagoBridge = () => {
                             }}
                         >
                             <video
-                                src="/TagoCash_fast_section_video.webm"
+                                src={videoUrl}
                                 className="w-full h-full object-cover"
                                 autoPlay
                                 muted

@@ -1,9 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGooglePlay, FaApple } from "react-icons/fa";
+import { useHomeContent } from '../../hooks/useHomeContent';
 import mobileAppImage from '../../assets/phone-img-new.png';
 
 const MobileApp = () => {
+    const { getFieldValue } = useHomeContent('mobileapp');
+
+    const smallTitle = getFieldValue('smallTitle') || 'Free TagoCash Wallet';
+    const mainHeading = getFieldValue('mainHeading') || "Don't carry cash, TagoCash!";
+    const playStoreUrl = getFieldValue('playStoreUrl') || 'https://play.google.com/store/apps/details?id=com.tago.cash';
+    const appStoreUrl = getFieldValue('appStoreUrl') || 'https://apps.apple.com/us/app/tagocash/id6752428469?l=fr-FR';
+
     return (
         <div className='flex w-full justify-center px-4 sm:px-0' style={{ backgroundColor: '#FBFDFF' }}>
             <div className="w-full max-w-[1900px] mx-auto flex flex-col sm:flex-row items-center justify-between lg:mx-20 bg-gradient-to-r from-[#1952A8] to-primary-dark my-8 lg:my-15 rounded-3xl overflow-hidden min-h-[350px] lg:min-h-[420px] py-5 lg:py-0">
@@ -15,7 +23,7 @@ const MobileApp = () => {
                         viewport={{ amount: 0.2 }}
                         transition={{ duration: 0.3 }}
                     >
-                        Free TagoCash Wallet
+                        {smallTitle}
                     </motion.p>
 
                     <motion.h3
@@ -26,7 +34,12 @@ const MobileApp = () => {
                         viewport={{ amount: 0.2 }}
                         transition={{ duration: 0.3 }}
                     >
-                        Don't carry<br /> cash,<br />TagoCash!
+                        {mainHeading.split(',').map((part, i) => (
+                            <React.Fragment key={i}>
+                                {part}{i < mainHeading.split(',').length - 1 ? ',' : ''}
+                                <br />
+                            </React.Fragment>
+                        ))}
                     </motion.h3>
 
                     <motion.div
@@ -37,7 +50,7 @@ const MobileApp = () => {
                         transition={{ duration: 0.3 }}
                     >
                         <a
-                            href="https://play.google.com/store/apps/details?id=com.tago.cash"
+                            href={playStoreUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex bg-black p-2 text-left rounded-lg items-center w-40 sm:w-40 cursor-pointer hover:bg-gray-900 transition-colors"
@@ -50,7 +63,7 @@ const MobileApp = () => {
                         </a>
 
                         <a
-                            href="https://apps.apple.com/us/app/tagocash/id6752428469?l=fr-FR"
+                            href={appStoreUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex bg-black p-2 text-left rounded-lg items-center w-40 sm:w-40 cursor-pointer hover:bg-gray-900 transition-colors"
